@@ -12,7 +12,7 @@ class CurrentProfiles extends Component {
         
         <h1>Profiles</h1>
           <section>
-              <img src=""/>
+              <img alt="profilePic" src=""/>
               <h1>Child Name</h1>
               <h2>Child Notes</h2>
               <button>Edit</button>

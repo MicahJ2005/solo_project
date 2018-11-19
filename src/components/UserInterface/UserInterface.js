@@ -7,25 +7,23 @@ class UserInterface extends Component {
       
     return (
       <div>
-        <secton>
+        <section>
           <button>Big Person Button</button>  
-        </secton>  
+        </section>  
 
-        <section>
+        
+
+        <section id="img1">
           <h1>First</h1>
-        </section>
-
-        <section>
-          <img src="image here" />
+          <img alt="interfacePic" src="https://amp.businessinsider.com/images/56e3189152bcd0320c8b5cf7-750-562.jpg" />
         </section>
         
 
-        <section>
-          <h1>Then</h1>
-        </section>
+        
 
-        <section>
-          <img src="image here" />
+        <section id="img2">
+          <h1>Then</h1>
+          <img  alt="interfacePic" src="https://www.active.com/Assets/fitness/bball-terms-620.jpg" />
         </section>
         
       </div>

@@ -9,9 +9,9 @@ class Header extends Component {
       
     return (
       <div>
-          <header>
+          {/* <header>
               <h1>F/TforME</h1>
-          </header>
+          </header> */}
         
       </div>
     )

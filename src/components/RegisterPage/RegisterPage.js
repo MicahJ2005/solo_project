@@ -5,17 +5,19 @@ class RegisterPage extends Component {
   state = {
     username: '',
     password: '',
+    userType:'',
   };
 
   registerUser = (event) => {
     event.preventDefault();
 
-    if (this.state.username && this.state.password) {
+    if (this.state.username && this.state.password && this.state.userType) {
       this.props.dispatch({
         type: 'REGISTER',
         payload: {
           username: this.state.username,
           password: this.state.password,
+          userType: this.state.userType
         },
       });
     } else {
@@ -62,6 +64,23 @@ class RegisterPage extends Component {
                 value={this.state.password}
                 onChange={this.handleInputChangeFor('password')}
               />
+            </label>
+          </div>
+          <div>
+            <label htmlFor="userType">
+              User Type:
+              <div className="dropdown">
+              <select name="userType" id="userType" type="userType" onChange={this.handleInputChangeFor('userType')}>
+                  <option value="1">Parent</option>
+                  <option value="2">Teacher</option>
+              </select>
+              </div>
+              {/* <input
+                type="userType"
+                name="userType"
+                value={this.state.type}
+                onChange={this.handleInputChangeFor('userType')}
+              /> */}
             </label>
           </div>
           <div>

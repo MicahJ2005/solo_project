@@ -47,3 +47,25 @@ input {
     border-bottom:1px solid #444; 
     cursor: pointer;
 }
+
+#img1 {
+    max-width: 700px;
+    height: 100px;
+    background-color: powderblue;
+    float: left;
+    margin-left:5%; 
+}
+
+#img2 {
+    max-width: 700px;
+    height: 100px;
+    background-color: powderblue;
+    float: right;
+    margin-right: 5%;
+    
+  
+}
+
+h1{
+    text-align: center;
+}

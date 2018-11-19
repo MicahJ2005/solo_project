@@ -13,11 +13,11 @@ class IndividualProfile extends Component {
 
         <section>
           <h2>Name</h2>
-          <img src="image here"/>
+          <img alt="ProfilePic" src="image here"/>
         </section>
 
         <section>
-          <h2>DROPZONE???? MAYBE???</h2>
+          <Dropzone/>
           <input placeholder="picture/task name" type="text"/>
           <button>Add To Library</button>
         </section>
