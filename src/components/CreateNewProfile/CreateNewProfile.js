@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 
+// let userId = JSON.stringify(this.props.reduxState.user.id)
+
 const newStudent = {
     name: '',
     student_pic: '',
-    
+    user_id: '',
     
 }
 
@@ -17,6 +19,7 @@ class CreateNewProfile extends Component {
     handleChange = event => {
         this.setState({
                 [event.target.name]: event.target.value,
+                user_id: JSON.stringify(this.props.reduxState.user.id)
         });
 }
     ///addNewProject dispatched our new state/project to our root saga on index.js
@@ -33,6 +36,7 @@ class CreateNewProfile extends Component {
       
     return (
       <div>
+          <pre>UserID: {JSON.stringify(this.props.reduxState)}</pre>
           <header>
               <h1>Create New Profile</h1>
           </header>
@@ -64,5 +68,9 @@ class CreateNewProfile extends Component {
     )
   }
 }
+const mapStateToProps = reduxState => ({
+    reduxState,
+});
 
-export default connect() (CreateNewProfile)
+
+export default connect(mapStateToProps) (CreateNewProfile)
