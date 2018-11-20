@@ -6,9 +6,9 @@ class CurrentProfiles extends Component {
   componentDidMount() {
     this.props.dispatch({ type: 'RENDER_PROFILES', payload: this.state})
 }
-  removeProfile = () => {
+  removeProfile = (id) => {
     console.log('in remove profile');
-    
+    this.props.dispatch({ type: 'DELETE_PROFILE', payload: id})
   }
 
 
@@ -29,7 +29,7 @@ class CurrentProfiles extends Component {
                   <li>{profile.note}</li>
                   <li><button>Edit</button></li>
                   <li><button>Select</button></li>
-                  <li><button onClick={this.removeProfile}>Remove</button></li>
+                  <li><button onClick={() => {this.removeProfile(profile.id)}}>Remove</button></li>
                   </ul>
               )
             })}

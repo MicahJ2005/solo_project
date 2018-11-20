@@ -25,8 +25,9 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
-app.use('/addStudent', createNewProfileRouter)
-app.use('/getStudentInfo', currentProfilesRouter)
+app.use('/addStudent', createNewProfileRouter);
+app.use('/getStudentInfo', currentProfilesRouter);
+app.use('/delete/:id', deleteProfilesRouter);
 
 // Serve static files
 app.use(express.static('build'));
