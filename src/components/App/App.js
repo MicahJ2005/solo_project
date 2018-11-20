@@ -23,6 +23,7 @@ import CurrentProfiles from '../CurrentProfiles/CurrentProfiles';
 import UserInterface from '../UserInterface/UserInterface';
 import IndividualProfile from '../IndividualProfile/IndividualProfile';
 import HistoryPage from '../HistoryPage/HistoryPage';
+import SelectedTasks from '../SelectedTasks/SelectedTasks';
 
 import './App.css';
 
@@ -77,6 +78,9 @@ class App extends Component {
                 <Link to="/CreateNewProfile">CreateNewProfile</Link>
               </li>
               <li>
+                <Link to="/SelectedTasks">Selected Tasks</Link>
+              </li>
+              <li>
                 <Link to="/CurrentProfiles">CurrentProfiles</Link>
               </li>
               <li>
@@ -93,6 +97,7 @@ class App extends Component {
             
             <Route path="/UserInterface" component={UserInterface} />
             <Route path="/CreateNewProfile" component={CreateNewProfile} />
+            <Route path="/SelectedTasks" component={SelectedTasks} />
             <Route path="/CurrentProfiles" component={CurrentProfiles} />
             <Route path="/IndividualProfile" component={IndividualProfile} />
             <Route path="/HistoryPage" component={HistoryPage} />
