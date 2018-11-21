@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Dropzone from 'react-dropzone'
 import request from 'superagent';
-import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
+// import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 
 const CLOUDINARY_UPLOAD_PRESET = 'ullpa5il';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dugsgmfj6/image/upload';

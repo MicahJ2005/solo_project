@@ -6,13 +6,13 @@ const pool = require('../modules/pool.js');
 router.post('/', (req, res) => {
     console.log(req.body);
     const queryText1 = `INSERT INTO "student_info" 
-                        ("name", "student_pic")
-                       VALUES ($1, $2) RETURNING id;`;
+                        ("name", "student_pic", "note")
+                       VALUES ($1, $2, $3) RETURNING id;`;
                     
     const queryText2 = `INSERT INTO "user_student" 
                        ("user_id", "student_id")
                        VALUES ($1, $2);`;
-    pool.query(queryText1, [req.body.name, req.body.student_pic])
+    pool.query(queryText1, [req.body.name, req.body.student_pic, req.body.note])
         .then((results) => {
             console.log('pool results', results.rows);
             

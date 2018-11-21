@@ -2,13 +2,13 @@ import { put, takeLatest , call } from 'redux-saga/effects';
 import axios from 'axios';
 
 // worker Saga: will be fired on "LOGIN" actions
-function* deleteProfile(action) {
+function* selectProfile(action) {
     console.log('delete action', action);
     
     try {
-        const response = yield call(axios.delete, `/delete/${action.payload}`)
-        console.log('deleteProfile api response', response);
-        yield put(({ type: 'SET_STUDENTS' }))
+        const response = yield call(axios.delete, `/selectProfile/${action.payload}`)
+        console.log('selectProfile api response', response);
+        // yield put(({ type: 'SET_STUDENTS' }))
         
       }
       catch (error) {
@@ -20,7 +20,7 @@ function* deleteProfile(action) {
 
 
 function* deleteProfileSaga() {
-  yield takeLatest('DELETE_PROFILE', deleteProfile);
+  yield takeLatest('SELECT_PROFILE', selectProfile);
   
 }
 

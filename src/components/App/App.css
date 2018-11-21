@@ -66,10 +66,60 @@ input {
   
 }
 
+#profileImg{
+    max-width: 700px;
+    height: 100px;
+    margin-right: 5%;
+}
+
 h1{
     text-align: center;
 }
 
 li{
     list-style-type: none; 
+}
+
+#card{
+    background-color: #dbd5d5;
+    width: 50%;
+    height: 450px;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 2px;
+}
+
+#card2{
+    background-color: #dbd5d5;
+    width: 35%;
+    height: 175px;
+    margin: 20px;
+    padding: 25px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+#editButton{
+    float: left;
+    margin-left: 10px;
+}
+
+#selectButton{
+    float: left;
+    margin-left: 30px;
+}
+
+#deleteButton{
+    float: left;
+    margin-left: 30px;
+}
+
+#profileName{
+    float: right;
+    margin-top: 0;
+
+}
+
+#profileNote{
+    float: right;
 }

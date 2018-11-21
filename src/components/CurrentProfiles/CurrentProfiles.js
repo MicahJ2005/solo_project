@@ -11,6 +11,16 @@ class CurrentProfiles extends Component {
     this.props.dispatch({ type: 'DELETE_PROFILE', payload: id})
   }
 
+  selectProfile = (id) => {
+    console.log('in remove profile');
+    this.props.dispatch({ type: 'SELECT_PROFILE', payload: id})
+    this.props.history.push('/IndividualProfile')
+  }
+
+  addProfile = () => {
+    this.props.history.push('/CreateNewProfile')
+  }
+
 
   render () {
       console.log(this.props.reduxState);
@@ -20,23 +30,23 @@ class CurrentProfiles extends Component {
       ///Map all profiles with cards
       <div> 
         <h1>Profiles</h1>
-        <div>
+        <div >
           {this.props.reduxState.currentProfilesReducer.map((profile) => {
               return( 
-                <ul className="container" key={profile.id}>
-                <li ><img alt={profile.id} src={profile.student_pic}/></li>
-                  <li>{profile.name}</li>
-                  <li>{profile.note}</li>
-                  <li><button>Edit</button></li>
-                  <li><button>Select</button></li>
-                  <li><button onClick={() => {this.removeProfile(profile.id)}}>Remove</button></li>
+                <ul id="card2" key={profile.id}>
+                <li ><img id="profileImg" alt={profile.id} src={profile.student_pic}/></li>
+                  <li id="profileName">{profile.name}</li>
+                  <li id="profileNote">{profile.note}</li>
+                  <li><button id="editButton">Edit</button></li>
+                  <li><button id="selectButton" onClick={() => {this.selectProfile(profile.id)}}>Select</button></li>
+                  <li><button id="deleteButton" onClick={() => {this.removeProfile(profile.id)}}>Remove</button></li>
                   </ul>
               )
             })}
           </div> 
           
           <section>
-            <button>Add New Profile</button>
+            <button onClick={this.addProfile}>Add New Profile</button>
           </section>
           <section>
             <button>Logout</button>

@@ -3,7 +3,9 @@ const router = express.Router();
 const pool = require('../modules/pool.js');
 
 
-router.delete('/:id', (req, res) => {
+router.delete('/', (req, res) => {
+    console.log('delete req', req);
+    
     let reqId = req.params.id;
     console.log('Delete request for id', reqId);
     let sqlText = 'DELETE FROM student_info WHERE id=$1;';

@@ -1,65 +1,61 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-// import Dropzone from 'react-dropzone'
-// import request from 'superagent';
-// import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
-
-// const CLOUDINARY_UPLOAD_PRESET = 'ullpa5il';
-// const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dugsgmfj6/image/upload';
+// import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
+// import { render } from 'react-dom';
+// import axios from 'axios';
 
 class ImageRender extends Component {
-//     state = { videos: [] };
-
-//   getVideos() {
-//     axios.get('http://res.cloudinary.com/dugsgmfj6/image/list/miniflix.json')
-//           .then(res => {
-//             console.log(res.data.resources);
-//             this.setState({ videos: res.data.resources});
-//     });
-//   }
-
-//   componentDidMount() {
-//     this.getVideos();
-//   }
-
-
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         gallery: []
+    //     }
+    // }
+    // componentDidMount(){
+    //     axios.get('http://res.cloudinary.com/christekh/image/list/xmas.json')
+    //         .then(res => {
+    //             console.log( 'res.data',res.data.resources);
+    //             this.setState({gallery: res.data.resources});
+    //         });
+    // }
     
-//   render () {
-      
-//     return (
-//       <div>
-//        const { videos }  = this.state;
+    render(){
+        return (
+            <div className="main">
+                <h1>Galleria</h1>
+                <div className="gallery">
 
-// return (
-//   <div>
-//     <Nav />
-//     <h3 className="text-center"> Latest Videos on Miniflix </h3>
-//     <hr/>
+                {/* <img src="../"/> */}
+                    {/* <CloudinaryContext cloudName="christekh">
+                        {
+                            this.state.gallery.map(data => {
+                                return (
+                                    <div className="responsive" key={data.public_id}>
+                                        <div className="img">
+                                            <a target="_blank" rel="noopener noreferrer" href={`http://res.cloudinary.com/christekh/image/upload/${data.public_id}.jpg`}>
+                                                <Image publicId={data.public_id}>
+                                                <Transformation
+                                                        crop="scale"
+                                                        width="300"
+                                                        height="200"
+                                                        dpr="auto"
+                                                        responsive_placeholder="blank"
+                                                    />
+                                                </Image>
+                                            </a>
+                                            <div className="desc">Created at {data.created_at}</div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </CloudinaryContext> */}
+                    <div className="clearfix"></div>
+                </div>
+            </div>
 
-//     <div className="col-sm-12">
-//       <CloudinaryContext cloudName="<cloud-name>">
-//         { videos.map((data, index) => (
-//             <div className="col-sm-4" key={index}>
-//               <div className="embed-responsive embed-responsive-4by3">
-//                 <Video publicId={data.public_id} width="300" height="300" controls></Video>
-//               </div>
-//               <div> Created at {data.created_at} </div>
-
-//             </div>
-//           ))
-//         }
-//       </CloudinaryContext>
-//     </div>
-    
-//   </div>
-
-
-     
-
-//     </div> 
-//       </div>
-//     )
-//   }
+        );
+    }
 }
 
-export default connect() (ImageRender);
+export default connect()(ImageRender);

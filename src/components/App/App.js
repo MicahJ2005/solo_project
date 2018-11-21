@@ -17,7 +17,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
-import Header from '../Header/Header';
+// import Header from '../Header/Header';
 import CreateNewProfile from '../CreateNewProfile/CreateNewProfile';
 import CurrentProfiles from '../CurrentProfiles/CurrentProfiles';
 import UserInterface from '../UserInterface/UserInterface';
@@ -68,7 +68,7 @@ class App extends Component {
             <Route render={() => <h1>404</h1>} />
           </Switch>
           <div>
-            <Header/>
+            
             <ul>
               <li>
                 <Link to="/UserInterface">UserInterface</Link>

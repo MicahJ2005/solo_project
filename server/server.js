@@ -12,6 +12,7 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const createNewProfileRouter = require('./routes/createNewProfile.router');
 const currentProfilesRouter = require('./routes/currentProfiles.router');
+const deleteProfilesRouter = require('./routes/deleteProfile.router');
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
