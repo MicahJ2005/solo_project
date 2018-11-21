@@ -5,6 +5,8 @@ import userSaga from './userSaga';
 import createNewProfileSaga from './createNewProfileSaga';
 import currentProfilesSaga from './currentProfilesSaga';
 import deleteProfileSaga from './deleteProfileSaga';
+import selectProfileSaga from './selectProfileSaga';
+import IndividualTasksSaga from './individualTasksSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -21,5 +23,7 @@ export default function* rootSaga() {
     createNewProfileSaga(),
     currentProfilesSaga(),
     deleteProfileSaga(),
+    selectProfileSaga(),
+    IndividualTasksSaga(),
   ]);
 }

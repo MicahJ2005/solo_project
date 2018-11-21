@@ -13,6 +13,8 @@ const userRouter = require('./routes/user.router');
 const createNewProfileRouter = require('./routes/createNewProfile.router');
 const currentProfilesRouter = require('./routes/currentProfiles.router');
 const deleteProfilesRouter = require('./routes/deleteProfile.router');
+const selectIndividualProfile = require('./routes/selectIndividualProfile.router');
+const selectIndividualTasks = require('./routes/selectIndividualTasks.router');
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,7 +30,9 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/addStudent', createNewProfileRouter);
 app.use('/getStudentInfo', currentProfilesRouter);
-app.use('/delete/:id', deleteProfilesRouter);
+app.use('/delete', deleteProfilesRouter);
+app.use('/selectProfile', selectIndividualProfile);
+app.use('/getIndividualTasks', selectIndividualTasks)
 
 // Serve static files
 app.use(express.static('build'));

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 class CurrentProfiles extends Component {
 
   componentDidMount() {
-    this.props.dispatch({ type: 'RENDER_PROFILES', payload: this.state})
+    this.props.dispatch({ type: 'RENDER_PROFILES' })
 }
   removeProfile = (id) => {
     console.log('in remove profile');
@@ -12,13 +12,10 @@ class CurrentProfiles extends Component {
   }
 
   selectProfile = (id) => {
-    console.log('in remove profile');
+    
+    console.log('in select profile', id);
     this.props.dispatch({ type: 'SELECT_PROFILE', payload: id})
     this.props.history.push('/IndividualProfile')
-  }
-
-  addProfile = () => {
-    this.props.history.push('/CreateNewProfile')
   }
 
 
@@ -44,13 +41,6 @@ class CurrentProfiles extends Component {
               )
             })}
           </div> 
-          
-          <section>
-            <button onClick={this.addProfile}>Add New Profile</button>
-          </section>
-          <section>
-            <button>Logout</button>
-          </section>
       </div>
     )
   }

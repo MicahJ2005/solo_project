@@ -1,14 +1,15 @@
 import { put, takeLatest , call } from 'redux-saga/effects';
 import axios from 'axios';
 
-// worker Saga: will be fired on "LOGIN" actions
+
 function* selectProfile(action) {
-    console.log('delete action', action);
+    console.log('select profile action', action);
     
     try {
-        const response = yield call(axios.delete, `/selectProfile/${action.payload}`)
+        const response = yield call(axios.get, `/selectProfile/${action.payload}`)
         console.log('selectProfile api response', response);
-        // yield put(({ type: 'SET_STUDENTS' }))
+        yield put({ type: 'GET_INDIVIDUAL_STUDENT', payload: response.data })
+        // yield put({ type: 'SET_INDIVIDUAL_TASKS', payload: response.data})
         
       }
       catch (error) {
@@ -19,9 +20,9 @@ function* selectProfile(action) {
 
 
 
-function* deleteProfileSaga() {
+function* selectProfileSaga() {
   yield takeLatest('SELECT_PROFILE', selectProfile);
   
 }
 
-export default deleteProfileSaga;
+export default selectProfileSaga;

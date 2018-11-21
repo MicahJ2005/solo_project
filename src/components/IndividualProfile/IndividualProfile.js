@@ -6,39 +6,49 @@ import { connect } from 'react-redux';
 
 class IndividualProfile extends Component {
 
+
+  componentDidMount(){
+    this.getId();
+ 
+  }
+
+    getId = (id) => {
+      console.log('getId', id);
+      
+      this.props.dispatch({ type: 'RENDER_INDIVIDUAL_TASKS', payload: this.props.reduxState.selectProfileReducer.id })
+    }
+
   render () {
       
     return (
       <div id="card">
-        <header>
-         <h1>[Child Name] Profile</h1>
-        </header>
-
-        <section>
-          <h2>Name</h2>
-          <img  id="profileImg" alt= "baby" src="images/baby.jpg"/>
-        </section>
-
-        <section>
-          {/* <Dropzone/> */}
-          {/* <input placeholder="picture/task name" type="text"/> */}
-          <button>Add To Library</button>
-        </section>
-
-        <section> 
-          <button>View History</button>
-        </section>
-
-        <section>
-          <h2>[Name] Library</h2>
-          {/* <ImageRender/> */}
-
-          <button>Start Your Schedule</button>
+        {this.props.reduxState.selectProfileReducer.map((individual) => {
+          return(
           
-        </section>
+            <ul key={individual.id}>
+            
+              <li><h1>{individual.name} Profile</h1></li>
+              <li><img  id="profileImg" alt= "baby" src={individual.student_pic}/></li>
+              <li>{individual.note}</li>
+              
+              {/* <button>Add To Library</button> */}
+            
 
+            <section> 
+              <button>View History</button>
+            </section>
 
+            <section>
+              <h2>{individual.name} Library</h2>
+              <pre>{JSON.stringify(this.props.reduxState.setIndividualTasksReducer)}</pre>
 
+              <button>Start Your Schedule</button>
+              
+            </section>
+            </ul>
+            
+        )
+        })}
       </div>
     )
   }
