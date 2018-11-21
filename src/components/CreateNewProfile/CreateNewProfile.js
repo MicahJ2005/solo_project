@@ -28,9 +28,14 @@ class CreateNewProfile extends Component {
         console.log('newStudent', this.state);
         event.preventDefault();
         
-        this.props.dispatch({ type: 'ADD_STUDENT', payload: this.state })
+        this.props.dispatch({ type: 'ADD_STUDENT', 
+        payload: {
+            newProfile: this.state,
+            history: this.props.history}
+
+         })
         this.setState(newStudent);
-        this.props.history.push('/CurrentProfiles')
+        // this.props.history.push('/CurrentProfiles')
     }
 
 

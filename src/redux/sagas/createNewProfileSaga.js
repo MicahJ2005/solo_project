@@ -4,9 +4,10 @@ import axios from 'axios';
 // worker Saga: will be fired on "LOGIN" actions
 function* addStudent(action) {
     try {
-        yield call(axios.post, '/addStudent', action.payload);
+        yield call(axios.post, '/addStudent', action.payload.newProfile);
         // TODO: Add our GET saga
         // yield put({type: 'FETCH_PROJECTS'});
+        action.payload.history.push('/CurrentProfiles');
     } catch (error) {
         console.log(error);
         alert('Unable to add project');
