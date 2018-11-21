@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {
   HashRouter as Router,
   Route,
-  Link,
   Redirect,
   Switch,
 } from 'react-router-dom';
@@ -24,6 +23,7 @@ import UserInterface from '../UserInterface/UserInterface';
 import IndividualProfile from '../IndividualProfile/IndividualProfile';
 import HistoryPage from '../HistoryPage/HistoryPage';
 import SelectedTasks from '../SelectedTasks/SelectedTasks';
+
 
 import './App.css';
 
@@ -64,45 +64,16 @@ class App extends Component {
               path="/info"
               component={InfoPage}
             />
+            <ProtectedRoute path="/UserInterface" component={UserInterface} />
+            <ProtectedRoute exact path="/CreateNewProfile" component={CreateNewProfile} />
+            <ProtectedRoute path="/SelectedTasks" component={SelectedTasks} />
+            <ProtectedRoute path="/CurrentProfiles" component={CurrentProfiles} />
+            <ProtectedRoute path="/IndividualProfile" component={IndividualProfile} />
+            <ProtectedRoute path="/HistoryPage" component={HistoryPage} />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
-          <div>
-            
-            <ul>
-              <li>
-                <Link to="/UserInterface">UserInterface</Link>
-              </li>
-              
-              <li>
-                <Link to="/CreateNewProfile">CreateNewProfile</Link>
-              </li>
-              <li>
-                <Link to="/SelectedTasks">Selected Tasks</Link>
-              </li>
-              <li>
-                <Link to="/CurrentProfiles">CurrentProfiles</Link>
-              </li>
-              <li>
-                <Link to="/IndividualProfile">IndividualProfile</Link>
-              </li>
-              <li>
-                <Link to="/HistoryPage">HistoryPage</Link>
-              </li>
-              
-            </ul>
-
-            <hr />
-
-            
-            <Route path="/UserInterface" component={UserInterface} />
-            <Route path="/CreateNewProfile" component={CreateNewProfile} />
-            <Route path="/SelectedTasks" component={SelectedTasks} />
-            <Route path="/CurrentProfiles" component={CurrentProfiles} />
-            <Route path="/IndividualProfile" component={IndividualProfile} />
-            <Route path="/HistoryPage" component={HistoryPage} />
-          </div>
-          <br></br>
+          
           <section>
           <Footer />
           </section>

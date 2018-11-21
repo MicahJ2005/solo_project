@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
-// import CreateNewProfile from '../CreateNewProfile/CreateNewProfile';
+
 import './Nav.css';
 
 const Nav = (props) => (
@@ -17,6 +17,8 @@ const Nav = (props) => (
         and call this link 'Login / Register' if they are not */}
         {props.user.id ? 'Home' : 'Login / Register'}
       </Link>
+      <Link className="nav-link" to="/CurrentProfiles">View Current Profiles</Link>
+          <Link className="nav-link" to="/CreateNewProfile">Create New Profile</Link>
       {/* Show the link to the info page and the logout button if the user is logged in */}
       {props.user.id && (
         <>
@@ -24,7 +26,7 @@ const Nav = (props) => (
           Create New Profile
           </Link> */}
           <LogOutButton className="nav-link"/>
-
+          
         </>
       )}
       {/* Always show this link since the about page is not protected */}
@@ -32,6 +34,7 @@ const Nav = (props) => (
         About
       </Link>
     </div>
+    
   </div>
 );
 
