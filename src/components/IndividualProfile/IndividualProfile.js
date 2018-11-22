@@ -36,18 +36,14 @@ class IndividualProfile extends Component {
 
             <section>
               <h2>{individual.name} Library</h2>
-              {/* {Object.keys(individual).map(images => {
-                
-              
-                  {individual[images].image.map(newImage => {
-                    return(
-                      <li><img src={newImage}/></li>
-                    )
-                  }
-
-                  )} */}
-                
-              {/* })} */}
+              <pre>{JSON.stringify(this.props.reduxState.setIndividualTasksReducer)}</pre>
+              {this.props.reduxState.setIndividualTasksReducer.map( task => {
+                return(
+                  <ul key={task.id}>
+                    <li><img id="profileImg" alt= "task" src={task.image}/></li>
+                  </ul>
+                )
+              })}
               
 
               <button>Start Your Schedule</button>
