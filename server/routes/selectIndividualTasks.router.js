@@ -3,15 +3,16 @@ const router = express.Router();
 const pool = require('../modules/pool.js');
 // var async = require('async');
 
-router.get('/:id', (req, res) => {
+router.get('/', (req, res) => {
   console.log('req.params.id', req.params.id);
   
     let reqId = req.params.id;
     console.log('GET Individual Tasks request for id', reqId);
     
-    const queryText = `SELECT tasks.*, student_info.id FROM tasks
-    JOIN student_info ON tasks.student_id=student_info.id
-    WHERE tasks.student_id=${reqId};`;
+    const queryText = `SELECT tasks.*, student_info.*, student_task_profile.* FROM student_task_profile
+    JOIN student_info ON student_task_profile.student_id=student_info.id
+    JOIN tasks ON student_info.id=student_task_profile.student_id
+    WHERE student_task_profile.student_id=${reqId};`;
     pool.query(queryText)
       .then((result) => { res.send(result.rows); })
       .catch((err) => {

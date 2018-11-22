@@ -10,6 +10,7 @@ function* getIndividualTasks(action) {
         console.log('getIndividualTasks api response', response);
         yield put(({ type: 'SET_INDIVIDUAL_TASKS', payload: response.data}))
         
+        
       }
       catch (error) {
         console.log('error with getting reques', error);

@@ -7,17 +7,13 @@ import { connect } from 'react-redux';
 class IndividualProfile extends Component {
 
 
-  componentDidMount(){
-    this.getId();
+  // componentDidMount(props){
+  //   console.log('props', props)
+  //   this.props.dispatch({ type: 'RENDER_INDIVIDUAL_TASKS' })
  
-  }
+  // }
 
-    getId = (id) => {
-      console.log('getId', id);
-      
-      this.props.dispatch({ type: 'RENDER_INDIVIDUAL_TASKS', payload: this.props.reduxState.selectProfileReducer.id })
-    }
-
+    
   render () {
       
     return (
@@ -40,7 +36,19 @@ class IndividualProfile extends Component {
 
             <section>
               <h2>{individual.name} Library</h2>
-              <pre>{JSON.stringify(this.props.reduxState.setIndividualTasksReducer)}</pre>
+              {/* {Object.keys(individual).map(images => {
+                
+              
+                  {individual[images].image.map(newImage => {
+                    return(
+                      <li><img src={newImage}/></li>
+                    )
+                  }
+
+                  )} */}
+                
+              {/* })} */}
+              
 
               <button>Start Your Schedule</button>
               

@@ -9,7 +9,7 @@ function* selectProfile(action) {
         const response = yield call(axios.get, `/selectProfile/${action.payload}`)
         console.log('selectProfile api response', response);
         yield put({ type: 'GET_INDIVIDUAL_STUDENT', payload: response.data })
-        // yield put({ type: 'SET_INDIVIDUAL_TASKS', payload: response.data})
+        
         
       }
       catch (error) {
