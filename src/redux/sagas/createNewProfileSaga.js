@@ -5,8 +5,7 @@ import axios from 'axios';
 function* addStudent(action) {
     try {
         yield call(axios.post, '/addStudent', action.payload.newProfile);
-        // TODO: Add our GET saga
-        // yield put({type: 'FETCH_PROJECTS'});
+        
         action.payload.history.push('/CurrentProfiles');
     } catch (error) {
         console.log(error);

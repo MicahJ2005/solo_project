@@ -127,3 +127,7 @@ li{
 #UserPage{
     float: center;
 }
+
+#taskForm{
+    align-items: initial;
+}

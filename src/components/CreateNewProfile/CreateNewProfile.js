@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 
-// let userId = JSON.stringify(this.props.reduxState.user.id)
-
 const newStudent = {
     name: '',
     student_pic: '',
@@ -43,6 +41,7 @@ class CreateNewProfile extends Component {
       
     return (
       <div>
+          <pre>{JSON.stringify(this.props.reduxState.user.id)}</pre>
           <section>
             <header>
                 <h1>Create New Profile</h1>

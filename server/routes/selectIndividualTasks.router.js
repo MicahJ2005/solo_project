@@ -15,7 +15,7 @@ router.get('/:id', (req, res) => {
     pool.query(queryText)
       .then((result) => { res.send(result.rows); })
       .catch((err) => {
-        console.log('Error completing SELECT project query', err);
+        console.log('Error completing SELECT tasks query', err);
         res.sendStatus(500);
       });
   });
