@@ -3,39 +3,61 @@ import { connect } from 'react-redux';
 
 class HistoryPage extends Component {
 
+  returnToProfile = () => {
+    this.props.history.push('/IndividualProfile')
+  }
+
   render () {
       
     return (
       <div>
         <section>
-          <h1>[Child Name] History</h1>
+          <button onClick={this.returnToProfile}>Return to Profile</button>
         </section>
 
-        <section>
-          <button>Return to Profile</button>
-        </section>
+        {this.props.reduxState.selectProfileReducer.map((profile) => {
+          return(
+            <h1>{profile.name} History</h1>
+          )
+          
+        })}
+        
+        <pre>{JSON.stringify(this.props.reduxState.selectHistoryReducer)}</pre>
+        {this.props.reduxState.selectHistoryReducer.map( history => {
+          return(
+            
+            
+            <table key={history.index}>
+              
+              <thead>
+                <tr>
+                  <td>Task Completed</td>
+                  <td>Date Completed</td>
+                  <td>Task Notes</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{history.task_name}</td>
+                  <td>{history.task_completed}</td>
+                  <td>{history.note}</td>
+                </tr>
+              </tbody>
+          </table>
 
-        <table>
-          <thead>
-            <tr>
-              <td>Task Completed</td>
-              <td>Date Completed</td>
-              <td>Task Notes</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Mapped Task</td>
-              <td>Mapped Date</td>
-              <td>Mapped Note</td>
-            </tr>
-          </tbody>
-        </table>
+        
+          )
+        })}
 
-
-      </div>
+        </div>
+      
+      
     )
   }
 }
 
-export default connect() (HistoryPage)
+const mapStateToProps = reduxState => ({
+  reduxState,
+});
+
+export default connect(mapStateToProps) (HistoryPage);

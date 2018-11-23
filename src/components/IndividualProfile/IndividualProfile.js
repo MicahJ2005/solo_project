@@ -6,13 +6,9 @@ import { connect } from 'react-redux';
 
 class IndividualProfile extends Component {
 
-
-  // componentDidMount(props){
-  //   console.log('props', props)
-  //   this.props.dispatch({ type: 'RENDER_INDIVIDUAL_TASKS' })
- 
-  // }
-
+  viewHistory = () => {
+    this.props.history.push('/HistoryPage')
+  }
     
   render () {
       
@@ -31,12 +27,12 @@ class IndividualProfile extends Component {
             
 
             <section> 
-              <button>View History</button>
+              <button onClick={this.viewHistory}>View History</button>
             </section>
 
             <section>
               <h2>{individual.name} Library</h2>
-              <pre>{JSON.stringify(this.props.reduxState.setIndividualTasksReducer)}</pre>
+              {/* <pre>{JSON.stringify(this.props.reduxState.setIndividualTasksReducer)}</pre> */}
               {this.props.reduxState.setIndividualTasksReducer.map( task => {
                 return(
                   <ul key={task.id}>

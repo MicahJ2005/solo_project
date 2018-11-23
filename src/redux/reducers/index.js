@@ -5,7 +5,7 @@ import user from './userReducer';
 import currentProfilesReducer from './currentProfileReducer';
 import selectProfileReducer from './selectProfileReducer';
 import setIndividualTasksReducer from './setIndividualTasksReducer';
-
+import selectHistoryReducer from './setIndividualHistoryReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -20,6 +20,7 @@ const rootReducer = combineReducers({
   currentProfilesReducer,
   selectProfileReducer,
   setIndividualTasksReducer,
+  selectHistoryReducer,
 });
 
 export default rootReducer;
