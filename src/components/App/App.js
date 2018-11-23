@@ -24,7 +24,6 @@ import IndividualProfile from '../IndividualProfile/IndividualProfile';
 import HistoryPage from '../HistoryPage/HistoryPage';
 import SelectedTasks from '../SelectedTasks/SelectedTasks';
 
-
 import './App.css';
 
 

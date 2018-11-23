@@ -2,9 +2,7 @@ import { put, takeLatest , call } from 'redux-saga/effects';
 import axios from 'axios';
 
 // worker Saga: will be fired on "LOGIN" actions
-function* getIndividualTasks(action) {
-  console.log('action', action.payload);
-  
+function* getIndividualTasks(action) { 
     try {
         const response = yield call(axios.get, `/getIndividualTasks/${action.payload}`)
         console.log('getIndividualTasks api response', response);
