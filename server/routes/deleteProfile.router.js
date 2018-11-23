@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require('../modules/pool.js');
 
 
-router.delete('/', (req, res) => {
+router.delete('/:id', (req, res) => {
     console.log('delete req', req);
     
     let reqId = req.params.id;
