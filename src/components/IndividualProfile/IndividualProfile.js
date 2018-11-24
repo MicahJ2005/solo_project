@@ -40,7 +40,7 @@ class IndividualProfile extends Component {
         {this.props.reduxState.selectProfileReducer.map((individual) => {
           return(
           
-            <ul key={individual.index}>
+            <ul key={individual.id}>
             
               <li><h1>{individual.name} Profile</h1></li>
               <li><img  id="profileImg" alt= "baby" src={individual.student_pic}/></li>

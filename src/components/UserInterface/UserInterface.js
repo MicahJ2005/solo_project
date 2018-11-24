@@ -3,6 +3,11 @@ import { connect } from 'react-redux';
 
 class UserInterface extends Component {
 
+  completedTask = (id) => {
+    console.log('in completed Task with id', id);
+    
+  }
+
   render () {
       
     return (
@@ -11,24 +16,35 @@ class UserInterface extends Component {
           <button>Big Person Button</button>  
         </section>  
 
+        {JSON.stringify(this.props.reduxState.setNewTaskListReducer)}
+
+      {this.props.reduxState.setNewTaskListReducer.map((task) => {
+        return(
+          <div key={task.id}>
+            <section id="img1" >
+              <h1>First</h1>
+              <img onClick={() => {this.completedTask(task.id)}} alt="interfacePic" src={task.image} />
+            </section>
         
 
-        <section id="img1">
-          <h1>First</h1>
-          <img alt="interfacePic" src="https://amp.businessinsider.com/images/56e3189152bcd0320c8b5cf7-750-562.jpg" />
-        </section>
         
 
+          {/* <section id="img2">
+            <h1>Then</h1>
+            <img  alt="interfacePic" src={image.image} />
+          </section> */}
+        </div>
+        )
+      })}
         
-
-        <section id="img2">
-          <h1>Then</h1>
-          <img  alt="interfacePic" src="https://www.active.com/Assets/fitness/bball-terms-620.jpg" />
-        </section>
         
       </div>
     )
   }
 }
 
-export default connect() (UserInterface)
+const mapStateToProps = reduxState => ({
+  reduxState,
+});
+
+export default connect(mapStateToProps) (UserInterface);

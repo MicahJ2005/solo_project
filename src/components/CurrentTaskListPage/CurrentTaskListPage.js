@@ -7,6 +7,10 @@ class CurrentTaskListPage extends Component {
         this.props.dispatch({ type: 'DELETE_TASK', payload: myTasks})
       }
 
+    userInterface = () => {
+        this.props.history.push('/UserInterface')
+    }
+
   render () {
       
     return (
@@ -15,9 +19,11 @@ class CurrentTaskListPage extends Component {
         <h1>Current Task List</h1>
         <h6 id="CurrentTasks">(To remove an image, click REMOVE)</h6>
         <h6 id="CurrentTasks">(When you are ready to start your schedule, click START SCHEDULE)</h6>
+
+        <button onClick={this.userInterface}>Start Schedule</button>
             {this.props.reduxState.setNewTaskListReducer.map( myTasks => {
                 return(
-                    <ul key={myTasks.index} id="currentTaskListImage">
+                    <ul key={myTasks.id} id="currentTaskListImage">
                         <img  id="currentTaskListImage" alt="task" src={myTasks.image}/>
                         <button id="deleteButton" onClick={() => {this.removeTask(myTasks)}}>Remove</button>
                     </ul>
