@@ -6,9 +6,9 @@ function* deleteCurrentTask(action) {
     console.log('delete action', action);
     
     try {
-        const response = yield call(axios.delete, `/deleteTask/${action.payload}`)
+        const response = yield call(axios.delete, `/deleteTask/${action.payload.id}`)
         console.log('deleteProfile api response', response);
-        // yield put(({ type: 'GET_SELECTED_TASKLIST', payload: action.payload }))
+        yield put(({ type: 'GET_SELECTED_TASKLIST', payload: action.payload.student_id }))
         
       }
       catch (error) {
