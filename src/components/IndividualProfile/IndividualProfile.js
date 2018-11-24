@@ -12,8 +12,6 @@ const newTask = {
 class IndividualProfile extends Component {
   state = newTask;
 
-  
-
   viewHistory = () => {
     this.props.history.push('/HistoryPage')
   }
@@ -26,17 +24,9 @@ class IndividualProfile extends Component {
       image: task.image,
 
     }})
-    // this.props.dispatch({ type: 'GET_SELECTED_TASKLIST', payload: {
-    //   task_name: task.task_name,
-    //   student_id: JSON.stringify(task.student_id),
-    //   image: task.image,
-
-    // }})
-
   }
 
   TaskListPreview = () => {
-    console.log('in TaskListPreview');
     this.props.history.push('/CurrentTaskListPage')
 
   } 

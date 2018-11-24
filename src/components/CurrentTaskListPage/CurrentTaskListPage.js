@@ -4,9 +4,7 @@ import { connect } from 'react-redux';
 class CurrentTaskListPage extends Component {
 
     removeTask = (myTasks) => {
-        console.log('in remove task', myTasks);
         this.props.dispatch({ type: 'DELETE_TASK', payload: myTasks})
-        // this.props.dispatch({ type: 'GET_SELECTED_TASKLIST', payload: myTasks })
       }
 
   render () {

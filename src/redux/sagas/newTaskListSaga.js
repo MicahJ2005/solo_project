@@ -4,8 +4,7 @@ import axios from 'axios';
 // worker Saga: will be fired on "LOGIN" actions
 function* addNewTasksToList(action) {
     try {
-        const response = yield call(axios.post, '/addNewTasksToList', action.payload)
-        console.log('addNewTasksToList api response.config.data', response.config.data);
+        yield call(axios.post, '/addNewTasksToList', action.payload);
         
       }
       catch (error) {

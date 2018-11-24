@@ -7,7 +7,6 @@ class CurrentProfiles extends Component {
     this.props.dispatch({ type: 'RENDER_PROFILES' })
 }
   removeProfile = (id) => {
-    console.log('in remove profile');
     this.props.dispatch({ type: 'DELETE_PROFILE', payload: id})
   }
 
@@ -22,18 +21,17 @@ class CurrentProfiles extends Component {
 
 
   render () {
-      console.log(this.props.reduxState);
-      
-    return (
+      return (
 
       ///Map all profiles with cards
       <div> 
         <h1>Profiles</h1>
         <div >
+          <pre>{JSON.stringify(this.props.reduxState.currentProfilesReducer)}</pre>
           {this.props.reduxState.currentProfilesReducer.map((profile) => {
               return( 
-                <ul id="card2" key={profile.index}>
-                  <li ><img id="profileImg" alt={profile.id} src={profile.student_pic}/></li>
+                <ul id="card2" key={profile.id}>
+                  <li ><img id="profileImg" alt={profile.index} src={profile.student_pic}/></li>
                   <li id="profileName">{profile.name}</li>
                   <li id="profileNote">{profile.note}</li>
                   <li><button id="editButton">Edit</button></li>
