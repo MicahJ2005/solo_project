@@ -27,7 +27,7 @@ class HistoryPage extends Component {
           return(
             
             
-            <table key={history.index}>
+            <table key={history.id}>
               
               <thead>
                 <tr>

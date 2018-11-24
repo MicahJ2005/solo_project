@@ -12,9 +12,9 @@ class UserInterface extends Component {
       
     return (
       <div>
-        <section>
+        {/* <section>
           <button>Big Person Button</button>  
-        </section>  
+        </section>   */}
 
         {JSON.stringify(this.props.reduxState.setNewTaskListReducer)}
 
