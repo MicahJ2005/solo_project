@@ -24,6 +24,7 @@ class IndividualProfile extends Component {
       image: task.image,
 
     }})
+    this.props.dispatch(({ type: 'GET_SELECTED_TASKLIST', payload: task.student_id }))
   }
 
   TaskListPreview = () => {

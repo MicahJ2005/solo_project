@@ -27,7 +27,6 @@ class CurrentProfiles extends Component {
       <div> 
         <h1>Profiles</h1>
         <div >
-          <pre>{JSON.stringify(this.props.reduxState.currentProfilesReducer)}</pre>
           {this.props.reduxState.currentProfilesReducer.map((profile) => {
               return( 
                 <ul id="card2" key={profile.id}>
