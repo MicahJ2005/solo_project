@@ -16,7 +16,7 @@ class CurrentProfiles extends Component {
     this.props.dispatch({ type: 'SELECT_PROFILE', payload: profile.id})
     this.props.dispatch({ type: 'RENDER_INDIVIDUAL_TASKS', payload: profile.id})
     this.props.dispatch({ type: 'RENDER_INDIVIDUAL_HISTORY', payload: profile.id})
-    // this.props.dispatch({ type: 'GET_SELECTED_TASKLIST', payload: profile})
+    this.props.dispatch({ type: 'GET_SELECTED_TASKLIST', payload: profile.id})
     this.props.history.push('/IndividualProfile')
   }
 

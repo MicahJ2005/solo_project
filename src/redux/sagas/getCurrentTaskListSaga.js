@@ -6,7 +6,7 @@ function* getNewTasksToList(action) {
   console.log('GET NewTasksToList action', action);
   
     try {
-        const response = yield call(axios.get, `/getNewTasksToList/${action.payload.student_id}`)
+        const response = yield call(axios.get, `/getNewTasksToList/${action.payload}`)
         console.log('GET NewTasksToList api response.config.data', response.data);
         yield put({ type: 'SET_SELECTED_TASKLIST', payload: response.data})
         

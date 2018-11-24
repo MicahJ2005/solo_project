@@ -26,12 +26,12 @@ class IndividualProfile extends Component {
       image: task.image,
 
     }})
-    this.props.dispatch({ type: 'GET_SELECTED_TASKLIST', payload: {
-      task_name: task.task_name,
-      student_id: JSON.stringify(task.student_id),
-      image: task.image,
+    // this.props.dispatch({ type: 'GET_SELECTED_TASKLIST', payload: {
+    //   task_name: task.task_name,
+    //   student_id: JSON.stringify(task.student_id),
+    //   image: task.image,
 
-    }})
+    // }})
 
   }
 

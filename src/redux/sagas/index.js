@@ -11,6 +11,7 @@ import IndividualHistorySaga from './IndividualHistorySaga';
 import addNewTaskSaga from './addNewTaskSaga';
 import addNewTaskListSaga from './newTaskListSaga';
 import NewTasksToList from './getCurrentTaskListSaga';
+import deleteCurrentTask from './deleteCurrentTaskSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -33,5 +34,6 @@ export default function* rootSaga() {
     addNewTaskSaga(),
     addNewTaskListSaga(),
     NewTasksToList(),
+    deleteCurrentTask(),
   ]);
 }

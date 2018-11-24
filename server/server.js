@@ -19,7 +19,7 @@ const selectIndividualHistory = require('./routes/individualHistory.router');
 const createIndividualTask = require('./routes/createIndividualTask.router');
 const addNewTasksToList = require('./routes/addNewTasksToList.router');
 const getSelectedTaskList = require('./routes/getSelectedTaskList.router');
-
+const deleteCurrentTask = require('./routes/deleteCurrentTask.router');
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -42,6 +42,7 @@ app.use('/getIndividualHistory', selectIndividualHistory)
 app.use('/addIndividualTask', createIndividualTask)
 app.use('/addNewTasksToList', addNewTasksToList)
 app.use('/getNewTasksToList', getSelectedTaskList)
+app.use('/deleteTask', deleteCurrentTask)
 // Serve static files
 app.use(express.static('build'));
 
