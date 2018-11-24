@@ -2,15 +2,15 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import IndividualTaskForm from '../IndividualTaskForm/TaskForm';
 
-
+const newTask = {
+  id:'',
+  image: '', 
+  student_id: '',
+  task_name: '',
+}
 
 class IndividualProfile extends Component {
-  state = {
-    newTasks: {
-      task: '',
-    },
-    taskList: [],
-  };
+  state = newTask;
 
   
 
@@ -18,26 +18,26 @@ class IndividualProfile extends Component {
     this.props.history.push('/HistoryPage')
   }
 
-  handleChange = (event) => {
-    console.log('in select image id', this.state.newTasks);
-    this.setState({
-      newTasks: {
-        ...this.state,
-        [event.target.name]: event.target.value,
-      }
-    })
-    console.log('state', this.state); 
+  handleChange = (task) => {
+    console.log('in select TASK on individual profile', task);
+    this.props.dispatch({ type: 'ADD_TO_TASKLIST', payload: {
+      task_name: task.task_name,
+      student_id: JSON.stringify(task.student_id),
+      image: task.image,
+
+    }})
+    this.props.dispatch({ type: 'GET_SELECTED_TASKLIST', payload: {
+      task_name: task.task_name,
+      student_id: JSON.stringify(task.student_id),
+      image: task.image,
+
+    }})
+
   }
 
-  startTaskList = (event) => {
-    event.preventDefault();
-    console.log('all new tasks', this.state.newTasks);
-    this.setState({
-      newTasks: {
-        task: '',
-      },
-      taskList: [ ...this.state.taskList, this.state.newTasks],
-    })
+  TaskListPreview = () => {
+    console.log('in TaskListPreview');
+    this.props.history.push('/CurrentTaskListPage')
 
   } 
     
@@ -49,7 +49,7 @@ class IndividualProfile extends Component {
         {this.props.reduxState.selectProfileReducer.map((individual) => {
           return(
           
-            <ul key={individual.id}>
+            <ul key={individual.index}>
             
               <li><h1>{individual.name} Profile</h1></li>
               <li><img  id="profileImg" alt= "baby" src={individual.student_pic}/></li>
@@ -66,17 +66,16 @@ class IndividualProfile extends Component {
             <section>
               <h2>{individual.name}'s Task Library</h2>
               <h6>(click on an image to add it to your task list task)</h6>
-              <pre>{JSON.stringify(this.props.reduxState.setIndividualTasksReducer)}</pre>
               {this.props.reduxState.setIndividualTasksReducer.map( task => {
                 return(
                   <ul key={task.id}>
-                    <li><img onClick={this.handleChange} value={task.id} name="task" id="profileImg" alt= "task" src={task.image}/></li>
+                    <li><img onClick={() => this.handleChange(task)} value={task.id} name="task" id="profileImg" alt= "task" src={task.image}/></li>
                   </ul>
                 )
               })}
               
 
-              <button onClick={this.startTaskList}>Start Your Schedule</button>
+              <button onClick={this.TaskListPreview}>Preview Selected Schedule</button>
               
             </section>
             </ul>

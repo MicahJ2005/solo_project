@@ -11,12 +11,12 @@ class CurrentProfiles extends Component {
     this.props.dispatch({ type: 'DELETE_PROFILE', payload: id})
   }
 
-  selectProfile = (id) => {
-    console.log('in select profile', id);
-    this.props.dispatch({ type: 'SELECT_PROFILE', payload: id})
-    this.props.dispatch({ type: 'RENDER_INDIVIDUAL_TASKS', payload: id})
-    this.props.dispatch({ type: 'RENDER_INDIVIDUAL_HISTORY', payload: id})
-    // this.props.dispatch({ type: 'SET_INDIVIDUAL_TASKS', payload: id})
+  selectProfile = (profile) => {
+    console.log('in select profile', profile);
+    this.props.dispatch({ type: 'SELECT_PROFILE', payload: profile.id})
+    this.props.dispatch({ type: 'RENDER_INDIVIDUAL_TASKS', payload: profile.id})
+    this.props.dispatch({ type: 'RENDER_INDIVIDUAL_HISTORY', payload: profile.id})
+    // this.props.dispatch({ type: 'GET_SELECTED_TASKLIST', payload: profile})
     this.props.history.push('/IndividualProfile')
   }
 
@@ -32,13 +32,13 @@ class CurrentProfiles extends Component {
         <div >
           {this.props.reduxState.currentProfilesReducer.map((profile) => {
               return( 
-                <ul id="card2" key={profile.id}>
+                <ul id="card2" key={profile.index}>
                   <li ><img id="profileImg" alt={profile.id} src={profile.student_pic}/></li>
                   <li id="profileName">{profile.name}</li>
                   <li id="profileNote">{profile.note}</li>
                   <li><button id="editButton">Edit</button></li>
-                  <li><button id="selectButton" onClick={() => {this.selectProfile(profile.id)}}>Select</button></li>
-                  <li><button id="deleteButton" onClick={() => {this.removeProfile(profile.id)}}>Remove</button></li>
+                  <li><button id="selectButton" onClick={() => {this.selectProfile(profile)}}>Select</button></li>
+                  <li><button id="deleteButton" onClick={() => {this.removeProfile(profile)}}>Remove</button></li>
                 </ul>
               )
             })}

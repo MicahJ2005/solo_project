@@ -6,7 +6,7 @@ import currentProfilesReducer from './currentProfileReducer';
 import selectProfileReducer from './selectProfileReducer';
 import setIndividualTasksReducer from './setIndividualTasksReducer';
 import selectHistoryReducer from './setIndividualHistoryReducer';
-
+import setNewTaskListReducer from './setNewTaskListReducer';
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -21,6 +21,7 @@ const rootReducer = combineReducers({
   selectProfileReducer,
   setIndividualTasksReducer,
   selectHistoryReducer,
+  setNewTaskListReducer,
 });
 
 export default rootReducer;

@@ -131,3 +131,15 @@ li{
 #taskForm{
     align-items: initial;
 }
+
+#CurrentTasks{
+    text-align: center;
+}
+
+#currentTaskListImage {
+    max-width: 700px;
+    height: 100px;
+    margin-right: 5%;
+    margin-top: 5%;
+    float: left
+}
