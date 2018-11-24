@@ -8,7 +8,7 @@ function* deleteProfile(action) {
     try {
         const response = yield call(axios.delete, `/delete/${action.payload.id}`)
         console.log('deleteProfile api response', response);
-        yield put(({ type: 'RENDER_PROFILES' }))
+        yield put(({ type: 'RENDER_PROFILES', payload: action.payload}))
         
       }
       catch (error) {
