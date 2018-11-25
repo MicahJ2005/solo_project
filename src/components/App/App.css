@@ -1,6 +1,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
+    background-color: rgb(190, 241, 223);
 }
 
 .alert {
@@ -8,28 +9,52 @@ body {
     margin: 50px;
 }
 
-form {
-    background-color: #dbd5d5;
-    width: 30%;
-    height: 250px;
-    margin: 20px auto;
+#currentProfiles {
+    margin: 20px;
     padding: 25px;
     border-radius: 2px;
+    width: 300px; height: 350px;
+     background-color: #A0DE21; 
+    -moz-border-radius: 150px 0px;
+    -webkit-border-radius: 120px 0px;
+    border-radius: 250px 0px;
+    float: left;
+    box-shadow: 3px 3px grey, -1em 0 .4em dimgray;
+}
+
+#newProfile{
+    margin: 0px;
+    padding: 40px;
+    border-radius: 2px;
+    width: 500px; 
+    height: 200px;
+     background-color: #A0DE21; 
+    -moz-border-radius: 250px 0px;
+    -webkit-border-radius: 150px 0px;
+    border-radius: 150px 0px;
+    margin-left: 30%;
+    align-items: center;
+    box-shadow: 3px 3px grey, -1em 0 .4em dimgray;
 }
 
 input {
-    margin: 5px;
+    margin: 25px;
     margin-bottom: 10px;
 }
 
 .log-in, .log-out, .register {
-  background-color: #00acb0;
+  background-color: green;
   border-radius: 4px;
   color: #f8f8f8;
   min-height: 50px;
   min-width: 100px;
   outline:0;
   cursor: pointer;
+  -moz-border-radius: 250px 0px;
+    -webkit-border-radius: 150px 0px;
+    border-radius: 150px 0px;
+    box-shadow: 3px 3px darkgreen;
+  
 }
 
 .log-in:hover, .log-out:hover, .register:hover {
@@ -69,7 +94,9 @@ input {
 #profileImg{
     max-width: 700px;
     height: 100px;
-    margin-right: 5%;
+    margin-right: 0%;
+    float:right;
+    box-shadow: 3px 3px grey, -1em 0 .4em dimgray;
 }
 
 h1{
@@ -80,49 +107,97 @@ li{
     list-style-type: none; 
 }
 
-#card{
+#individualProfileCard{
     background-color: #dbd5d5;
     width: 50%;
-    height: 450px;
+    height: 650px;
     margin: 20px auto;
     padding: 25px;
     border-radius: 2px;
+    -moz-border-radius: 150px 0px;
+    -webkit-border-radius: 120px 0px;
+    border-radius: 250px 0px;
+    background-color: #A0DE21; 
+    box-shadow: 3px 3px grey, -1em 0 .4em dimgray;
 }
 
-#card2{
-    background-color: #dbd5d5;
-    width: 35%;
-    height: 175px;
-    margin: 20px;
+/* #card2{
+    margin: 30px ;
     padding: 25px;
-    border-radius: 5px;
-    display: inline-block;
-}
+    border-radius: 2px;
+    width: 300px; 
+    height: 325px;
+     background-color: #A0DE21; 
+    -moz-border-radius: 150px 0px;
+    -webkit-border-radius: 120px 0px;
+    border-radius: 250px 0px;
+    float: left;
+} */
 
 #editButton{
-    float: left;
+    float: right;
     margin-left: 10px;
+    margin-top: 50px;
+    width: 70px;
+    -moz-border-radius: 150px 0px;
+    -webkit-border-radius: 120px 0px;
+    border-radius: 250px 0px;
+  background-color: #256652;
+  color: white;
+  box-shadow: 3px 3px darkgreen;
+ 
 }
 
 #selectButton{
     float: left;
-    margin-left: 30px;
+    margin-left: 10px;
+    margin-top: 130px;
+    width: 70px;
+    -moz-border-radius: 150px 0px;
+    -webkit-border-radius: 120px 0px;
+    border-radius: 250px 0px;
+    background-color: #256652;
+    color: white;
+    box-shadow: 3px 3px darkgreen;
 }
 
 #deleteButton{
     float: left;
     margin-left: 30px;
+    margin-top: 60px;
+    width: 70px;
+    -moz-border-radius: 150px 0px;
+    -webkit-border-radius: 120px 0px;
+    border-radius: 250px 0px;
+    background-color: #256652;
+    color: white;
+    box-shadow: 3px 3px darkgreen;
 }
 
 #profileName{
     float: right;
-    margin-top: 0;
+    margin-top: 75px;
+    margin-right: 20px
 
 }
 
 #profileNote{
+    float: left;
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
+
+#profileImg{
     float: right;
 }
+
+#taskImg{
+    float:left;
+    max-width: 700px;
+    height: 100px;
+    margin: 10px;
+}
+
 
 #UserPage{
     float: center;

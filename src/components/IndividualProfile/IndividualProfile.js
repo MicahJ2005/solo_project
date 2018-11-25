@@ -35,38 +35,41 @@ class IndividualProfile extends Component {
   render () {
       
     return (
-      <div id="card">
+      <div id="individualProfileCard">
         
         {this.props.reduxState.selectProfileReducer.map((individual) => {
           return(
           
             <ul key={individual.id}>
-            
-              <li><h1>{individual.name} Profile</h1></li>
+              <div>
+                <li><h1>{individual.name} Profile</h1></li>
+              
               <li><img  id="profileImg" alt= "baby" src={individual.student_pic}/></li>
               <li>{individual.note}</li>
-              
+              </div>
               {/* <button>Add To Library</button> */}
-            
+              <br></br>
               <IndividualTaskForm individualId={individual.id}/>
             
             <section> 
-              <button onClick={this.viewHistory}>View History</button>
+              <button id="selectButton" onClick={this.viewHistory}>View History</button>
             </section>
-
+            
             <section>
               <h2>{individual.name}'s Task Library</h2>
               <h6>(click on an image to add it to your task list task)</h6>
               {this.props.reduxState.setIndividualTasksReducer.map( task => {
                 return(
-                  <ul key={task.id}>
-                    <li><img onClick={() => this.handleChange(task)} value={task.id} name="task" id="profileImg" alt= "task" src={task.image}/></li>
-                  </ul>
+                  <div key={task.id}>
+                      <li><img onClick={() => this.handleChange(task)} value={task.id} name="task" id="taskImg" alt= "task" src={task.image}/></li>
+                      <li>{task.task_name}</li>
+                      <button id="selectButton">Remove</button>
+                  </div>
                 )
               })}
               
 
-              <button onClick={this.TaskListPreview}>Preview Selected Schedule</button>
+              <button id="selectButton" onClick={this.TaskListPreview}>Preview Schedule</button>
               
             </section>
             </ul>

@@ -29,7 +29,7 @@ class CurrentProfiles extends Component {
         <div >
           {this.props.reduxState.currentProfilesReducer.map((profile) => {
               return( 
-                <ul id="card2" key={profile.id}>
+                <ul key={profile.id} id="currentProfiles">
                   <li ><img id="profileImg" alt={profile.index} src={profile.student_pic}/></li>
                   <li id="profileName">{profile.name}</li>
                   <li id="profileNote">{profile.note}</li>

@@ -41,17 +41,16 @@ class CreateNewProfile extends Component {
       
     return (
       <div>
-          <pre>{JSON.stringify(this.props.reduxState.user.id)}</pre>
           <section>
             <header>
                 <h1>Create New Profile</h1>
             </header>
                     <br></br>
-                <form onSubmit={this.submitForm}>  
+                <form onSubmit={this.submitForm} id="newProfile">  
                     <input name="name" type="text" placeholder="Add Student Name" value={this.state.name} onChange={this.handleChange}/>
                     <input name="student_pic" type="text" placeholder="Add Image" value={this.state.student_pic} onChange={this.handleChange}/>
                     <input name="note" type="text" placeholder="Add a Note" value={this.state.note} onChange={this.handleChange}/>
-                    <input type="submit" value="submit"></input>
+                    <input id="selectButton" type="submit" value="submit"></input>
                     <h2>You are Awesome!</h2>
                 </form>
                 

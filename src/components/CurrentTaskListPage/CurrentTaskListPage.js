@@ -20,7 +20,7 @@ class CurrentTaskListPage extends Component {
         <h6 id="CurrentTasks">(To remove an image, click REMOVE)</h6>
         <h6 id="CurrentTasks">(When you are ready to start your schedule, click START SCHEDULE)</h6>
 
-        <button onClick={this.userInterface}>Start Schedule</button>
+        <button id="selectButton" onClick={this.userInterface}>Start Schedule</button>
             {this.props.reduxState.setNewTaskListReducer.map( myTasks => {
                 return(
                     <ul key={myTasks.id} id="currentTaskListImage">

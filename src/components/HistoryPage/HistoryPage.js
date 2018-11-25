@@ -12,7 +12,7 @@ class HistoryPage extends Component {
     return (
       <div>
         <section>
-          <button onClick={this.returnToProfile}>Return to Profile</button>
+          <button id="selectButton" onClick={this.returnToProfile}>Return to Profile</button>
         </section>
 
         {this.props.reduxState.selectProfileReducer.map((profile) => {
@@ -22,7 +22,6 @@ class HistoryPage extends Component {
           
         })}
         
-        <pre>{JSON.stringify(this.props.reduxState.selectHistoryReducer)}</pre>
         {this.props.reduxState.selectHistoryReducer.map( history => {
           return(
             
