@@ -25,6 +25,7 @@ class CurrentTaskListPage extends Component {
                 return(
                     <ul key={myTasks.id} id="currentTaskListImage">
                         <img  id="currentTaskListImage" alt="task" src={myTasks.image}/>
+                        <li>{myTasks.task_name}</li>
                         <button id="deleteButton" onClick={() => {this.removeTask(myTasks)}}>Remove</button>
                     </ul>
                     

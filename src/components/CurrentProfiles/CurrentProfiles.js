@@ -32,7 +32,7 @@ class CurrentProfiles extends Component {
                 <ul key={profile.id} id="currentProfiles">
                   <li ><img id="profileImg" alt={profile.index} src={profile.student_pic}/></li>
                   <li id="profileName">{profile.name}</li>
-                  <li id="profileNote">{profile.note}</li>
+                  <li id="allProfilesNote"><em>{profile.note}</em></li>
                   <li><button id="editButton">Edit</button></li>
                   <li><button id="selectButton" onClick={() => {this.selectProfile(profile)}}>Select</button></li>
                   <li><button id="deleteButton" onClick={() => {this.removeProfile(profile)}}>Remove</button></li>

@@ -37,12 +37,12 @@ class TaskForm extends Component {
     
     return (
       <div id="taskForm">
-        
+        <br/>
         <h3>Add a New Task</h3>
         <form onSubmit={this.submitForm}>  
             <input name="task_name" type="text" placeholder="Add Task Name" value={this.state.task_name} onChange={this.handleChange}/>
             <input name="image" type="text" placeholder="Add Task Image" value={this.state.image} onChange={this.handleChange}/>
-            <input id="selectButton" type="submit" value="submit"></input>
+            <input id="selectTaskButton" type="submit" value="submit"></input>
         </form>
 
     </div>

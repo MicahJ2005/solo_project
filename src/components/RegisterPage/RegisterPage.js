@@ -33,7 +33,7 @@ class RegisterPage extends Component {
 
   render() {
     return (
-      <div>
+      <div id="newLogin">
         {this.props.errors.registrationMessage && (
           <h2
             className="alert"
@@ -67,21 +67,15 @@ class RegisterPage extends Component {
             </label>
           </div>
           <div>
-            <label htmlFor="userType">
-              User Type:
-              <div className="dropdown">
+          <li> <label htmlFor="userType">
+              User Type:    
+    
               <select name="userType" id="userType" type="userType" onChange={this.handleInputChangeFor('userType')}>
                   <option value="1">Parent</option>
                   <option value="2">Teacher</option>
               </select>
-              </div>
-              {/* <input
-                type="userType"
-                name="userType"
-                value={this.state.type}
-                onChange={this.handleInputChangeFor('userType')}
-              /> */}
-            </label>
+              
+            </label></li>
           </div>
           <div>
             <input

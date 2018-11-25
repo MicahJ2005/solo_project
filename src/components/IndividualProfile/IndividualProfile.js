@@ -44,24 +44,24 @@ class IndividualProfile extends Component {
               <div>
                 <li><h1>{individual.name} Profile</h1></li>
               
-              <li><img  id="profileImg" alt= "baby" src={individual.student_pic}/></li>
-              <li>{individual.note}</li>
+              <li><img  id="IndividualProfileImg" alt= "baby" src={individual.student_pic}/></li>
+              <li id="profileNote"><em>{individual.note}</em></li>
               </div>
               {/* <button>Add To Library</button> */}
               <br></br>
               <IndividualTaskForm individualId={individual.id}/>
             
             <section> 
-              <button id="selectButton" onClick={this.viewHistory}>View History</button>
+              <button id="historyButton" onClick={this.viewHistory}>View History</button>
             </section>
             
-            <section>
+            <section id="taskLibrary">
               <h2>{individual.name}'s Task Library</h2>
               <h6>(click on an image to add it to your task list task)</h6>
               {this.props.reduxState.setIndividualTasksReducer.map( task => {
                 return(
-                  <div key={task.id}>
-                      <li><img onClick={() => this.handleChange(task)} value={task.id} name="task" id="taskImg" alt= "task" src={task.image}/></li>
+                  <div key={task.id} id="taskImgBox">
+                      <li><img onClick={() => this.handleChange(task)} value={task.id} id="taskImg" name="task"  alt= "task" src={task.image}/></li>
                       <li>{task.task_name}</li>
                       <button id="selectButton">Remove</button>
                   </div>
@@ -69,7 +69,7 @@ class IndividualProfile extends Component {
               })}
               
 
-              <button id="selectButton" onClick={this.TaskListPreview}>Preview Schedule</button>
+              <button id="previewScheduleButton" onClick={this.TaskListPreview}>Preview Schedule</button>
               
             </section>
             </ul>
