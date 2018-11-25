@@ -232,6 +232,12 @@ li{
     float:left;
     width: 100px;
     height: 130px;
+    background-color: #9cc28e;
+    background-position: center center;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    margin-bottom: 3px;
+    margin-right: 3px;
 }
 
 #previewScheduleButton{
