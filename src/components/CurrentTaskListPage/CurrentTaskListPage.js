@@ -14,7 +14,7 @@ class CurrentTaskListPage extends Component {
   render () {
       
     return (
-    <div>
+    <div id="individualProfileCard">
       <div> 
         <h1>Current Task List</h1>
         <h6 id="CurrentTasks">(To remove an image, click REMOVE)</h6>
