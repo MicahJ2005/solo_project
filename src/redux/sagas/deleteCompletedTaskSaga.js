@@ -3,8 +3,8 @@ import axios from 'axios';
 
 function* deleteCompletedTask(action) {
     try {
-        yield call(axios.delete, `/deleteCompletedTask/${action.payload}`)
-        // yield put(({ type: 'RENDER_PROFILES', payload: action.payload}))
+        yield call(axios.delete, `/deleteCompletedTask/${action.payload.id}`)
+        yield put({ type: 'GET_SELECTED_TASKLIST', payload: action.payload.student_id} )
         
       }
       catch (error) {

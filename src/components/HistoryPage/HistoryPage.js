@@ -18,7 +18,7 @@ class HistoryPage extends Component {
         <section id="historyTable">
         {this.props.reduxState.selectProfileReducer.map((profile) => {
           return(
-            <h1>{profile.name} History</h1>
+            <h1 key={profile.id}>{profile.name} History</h1>
           )
           
         })}
@@ -35,10 +35,10 @@ class HistoryPage extends Component {
               
               {this.props.reduxState.selectHistoryReducer.map( history => {
                 return(
-              <tbody key={history.id} id="tableBody">
+              <tbody key={history.index} id="tableBody">
                 <tr>
                   <td>{history.task_name}</td>
-                  <td>{history.task_completed}</td>
+                  <td>{history.date_completed}</td>
                   <td>{history.note}</td>
                 </tr>
               </tbody>
