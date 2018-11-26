@@ -89,22 +89,62 @@ input {
     cursor: pointer;
 }
 
-#img1 {
-    max-width: 700px;
-    height: 100px;
+#uiImage1 {
+    border-radius: 20px;
+    width: 600px;
+    margin-top: 5%;
+    height: 400px;
     background-color: powderblue;
     float: left;
-    margin-left:5%; 
+    margin-left: 20px; 
+    text-align: center;
 }
 
-#img2 {
-    max-width: 700px;
-    height: 100px;
+#firstText{
+    float: left;
+    margin-left: 40%;
+    margin-bottom: 0;
+    /* text-align: center; */
+}
+
+#uiImage1bg{
+    border-radius: 40px;
+    background-color: lightgray;
+    height: 520px;
+    width:650px;
+    border-radius: 8px;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+#uiImage2 {
+    border-radius: 20px;
+    margin-top: 2%;
+    width: 600px;
+    height: 400px;
     background-color: powderblue;
     float: right;
-    margin-right: 5%;
-    
+    margin-right: 4%;
+    text-align: center;
+    margin-left: 1%;
   
+}
+
+#thenText{
+    text-align: center;
+    margin-bottom: 19px;
+}
+
+#uiImage2bg{
+    float: right;
+    border-radius: 40px;
+    background-color: lightgray;
+    height: 520px;
+    width:650px;
+    border-radius: 8px;
+    margin-left: 5px;
+    margin-top: -520px;
+    margin-right: 30px;
 }
 
 #profileImg{
