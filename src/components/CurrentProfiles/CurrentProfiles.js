@@ -1,13 +1,29 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 class CurrentProfiles extends Component {
 
   componentDidMount() {
     this.props.dispatch({ type: 'RENDER_PROFILES' })
 }
-  removeProfile = (id) => {
-    this.props.dispatch({ type: 'DELETE_PROFILE', payload: id})
+  removeProfile = (profile) => {
+    confirmAlert({
+      title: 'Delete Profile?',
+      message: 'Are you sure you want to DELETE this profile?',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => this.props.dispatch({ type: 'DELETE_PROFILE', payload: profile})
+          
+        },
+        {
+          label: 'No',
+          onClick: () => alert('Click No')
+        }
+      ]
+    })
   }
 
   selectProfile = (profile) => {

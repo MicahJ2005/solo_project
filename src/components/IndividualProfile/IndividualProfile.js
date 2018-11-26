@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import IndividualTaskForm from '../IndividualTaskForm/TaskForm';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 const newTask = {
   id:'',
@@ -17,7 +19,6 @@ class IndividualProfile extends Component {
   }
 
   handleChange = (task) => {
-    console.log('in select TASK on individual profile', task);
     this.props.dispatch({ type: 'ADD_TO_TASKLIST', payload: {
       task_name: task.task_name,
       student_id: JSON.stringify(task.student_id),
@@ -33,7 +34,21 @@ class IndividualProfile extends Component {
   } 
 
   removeLibraryTask = (task) => {
-    this.props.dispatch({ type: 'DELETE_LIBRARY_TASK', payload: task})
+    confirmAlert({
+      title: 'Delete Task from Library?',
+      message: 'Are you sure you want to DELETE this Task from your Library?',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => this.props.dispatch({ type: 'DELETE_LIBRARY_TASK', payload: task})
+          
+        },
+        {
+          label: 'No',
+          onClick: () => alert('Click No')
+        }
+      ]
+    })
   }
     
   render () {
@@ -48,11 +63,11 @@ class IndividualProfile extends Component {
               <div>
                 <li><h1>{individual.name} Profile</h1></li>
               
-              <li><img  id="IndividualProfileImg" alt= "baby" src={individual.student_pic}/></li>
-              <li id="profileNote"><em>{individual.note}</em></li>
+                <li><img  id="IndividualProfileImg" alt= "baby" src={individual.student_pic}/></li>
+                <li id="profileNote"><em>{individual.note}</em></li>
               </div>
               {/* <button>Add To Library</button> */}
-              <br></br>
+            <br></br>
               <IndividualTaskForm individualId={individual.id}/>
             
             <section> 
@@ -62,8 +77,8 @@ class IndividualProfile extends Component {
             <section id="taskLibrary">
               <h2>{individual.name}'s Task Library</h2>
               <h6>(click on an image to add it to your task list task)</h6>
-              {this.props.reduxState.setIndividualTasksReducer.map( task => {
-                return(
+                {this.props.reduxState.setIndividualTasksReducer.map( task => {
+                  return(
                   <div key={task.id} id="taskImgBox">
                       <li><img onClick={() => this.handleChange(task)} value={task.id} id="taskImg" name="task"  alt= "task" src={task.image}/></li>
                       <li>{task.task_name}</li>

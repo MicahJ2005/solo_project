@@ -16,6 +16,7 @@
     "pg": "^7.4.1",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
+    "react-confirm-alert": "^2.0.6",
     "react-dom": "^16.2.0",
     "react-dropzone": "^7.0.1",
     "react-redux": "^5.0.7",
@@ -23,7 +24,9 @@
     "react-scripts": "^2.0.3",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
-    "redux-saga": "^0.16.0"
+    "redux-saga": "^0.16.0",
+    "sweetalert": "^2.1.2",
+    "sweetalert-react": "^0.4.11"
   },
   "scripts": {
     "start": "node server/server.js",
