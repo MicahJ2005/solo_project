@@ -20,6 +20,7 @@ const createIndividualTask = require('./routes/createIndividualTask.router');
 const addNewTasksToList = require('./routes/addNewTasksToList.router');
 const getSelectedTaskList = require('./routes/getSelectedTaskList.router');
 const deleteCurrentTask = require('./routes/deleteCurrentTask.router');
+const deleteLibraryTask = require('./routes/deleteLibraryTask.router');
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -43,6 +44,7 @@ app.use('/addIndividualTask', createIndividualTask)
 app.use('/addNewTasksToList', addNewTasksToList)
 app.use('/getNewTasksToList', getSelectedTaskList)
 app.use('/deleteTask', deleteCurrentTask)
+app.use('/deleteLibraryTask', deleteLibraryTask)
 // Serve static files
 app.use(express.static('build'));
 

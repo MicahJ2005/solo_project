@@ -31,6 +31,10 @@ class IndividualProfile extends Component {
     this.props.history.push('/CurrentTaskListPage')
 
   } 
+
+  removeLibraryTask = (task) => {
+    this.props.dispatch({ type: 'DELETE_LIBRARY_TASK', payload: task})
+  }
     
   render () {
       
@@ -63,7 +67,7 @@ class IndividualProfile extends Component {
                   <div key={task.id} id="taskImgBox">
                       <li><img onClick={() => this.handleChange(task)} value={task.id} id="taskImg" name="task"  alt= "task" src={task.image}/></li>
                       <li>{task.task_name}</li>
-                      <button id="selectButton">Remove</button>
+                      <button id="selectButton" onClick={() => {this.removeLibraryTask(task)}}>Remove</button>
                   </div>
                 )
               })}
