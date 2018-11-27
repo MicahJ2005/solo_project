@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import IndividualTaskForm from '../IndividualTaskForm/TaskForm';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import 'antd/dist/antd.css';
+
 
 const newTask = {
   id:'',
@@ -59,8 +61,8 @@ class IndividualProfile extends Component {
         {this.props.reduxState.selectProfileReducer.map((individual) => {
           return(
           
-            <ul key={individual.id}>
-              <div>
+            <ul key={individual.id} >
+              <div id="profileHead">
                 <li><h1>{individual.name} Profile</h1></li>
               
                 <li><img  id="IndividualProfileImg" alt= "baby" src={individual.student_pic}/></li>

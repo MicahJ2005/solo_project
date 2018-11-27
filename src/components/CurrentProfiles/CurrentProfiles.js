@@ -6,7 +6,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 class CurrentProfiles extends Component {
 
   componentDidMount() {
-    this.props.dispatch({ type: 'RENDER_PROFILES', payload: this.props.reduxState.user })
+    this.props.dispatch({ type: 'RENDER_PROFILES', payload: this.props.reduxState.user.id })
 }
   removeProfile = (profile) => {
     confirmAlert({
@@ -28,6 +28,7 @@ class CurrentProfiles extends Component {
 
   selectProfile = (profile) => {
     console.log('profile', profile);
+
     
     this.props.dispatch({ type: 'SELECT_PROFILE', payload: profile.id})
     this.props.dispatch({ type: 'RENDER_INDIVIDUAL_TASKS', payload: profile.id})
