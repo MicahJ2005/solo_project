@@ -98,6 +98,7 @@ input {
     float: left;
     margin-left: 20px; 
     text-align: center;
+    box-shadow: 3px 3px grey, -1em 0 .4em dimgray;
 }
 
 #firstText{
@@ -115,6 +116,7 @@ input {
     border-radius: 8px;
     margin-left: 30px;
     margin-top: 30px;
+    box-shadow: 3px 3px grey, -1em 0 .4em dimgray;
 }
 
 #uiImage2 {
@@ -127,7 +129,7 @@ input {
     margin-right: 4%;
     text-align: center;
     margin-left: 1%;
-  
+    box-shadow: 3px 3px grey, -1em 0 .4em dimgray;
 }
 
 #thenText{
@@ -145,6 +147,7 @@ input {
     margin-left: 5px;
     margin-top: -520px;
     margin-right: 30px;
+    box-shadow: 3px 3px grey, -1em 0 .4em dimgray;
 }
 
 #profileImg{
@@ -261,7 +264,7 @@ li{
 
 #taskImg{
     float:left;
-    width: 70px;
+    width: 90px;
     height: 70px;
     margin: 5px;
     margin-right: 3px;
