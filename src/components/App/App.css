@@ -291,6 +291,14 @@ li{
     margin-right: 3px;
 }
 
+#taskImgBox:active {
+    background-color:red;
+}
+
+#taskImgBox:focus {
+    background-color:red;
+}
+
 #previewScheduleButton{
     float: right;
     margin-right: 5%;
