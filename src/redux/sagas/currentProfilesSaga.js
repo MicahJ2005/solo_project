@@ -3,8 +3,9 @@ import axios from 'axios';
 
 // worker Saga: will be fired on "LOGIN" actions
 function* getProfiles(action) {
+  console.log('getProfiles action', action.payload);
     try {
-        const response = yield call(axios.get, '/getStudentInfo')
+        const response = yield call(axios.get, `/getStudentInfo/${action.payload.id}`)
         console.log('getStudentInfo api response', response);
         yield put(({ type: 'SET_STUDENTS', payload: response.data}))
         

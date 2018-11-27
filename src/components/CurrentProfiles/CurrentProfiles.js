@@ -6,7 +6,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 class CurrentProfiles extends Component {
 
   componentDidMount() {
-    this.props.dispatch({ type: 'RENDER_PROFILES' })
+    this.props.dispatch({ type: 'RENDER_PROFILES', payload: this.props.reduxState.user })
 }
   removeProfile = (profile) => {
     confirmAlert({
@@ -27,7 +27,8 @@ class CurrentProfiles extends Component {
   }
 
   selectProfile = (profile) => {
-    console.log('in select profile', profile);
+    console.log('profile', profile);
+    
     this.props.dispatch({ type: 'SELECT_PROFILE', payload: profile.id})
     this.props.dispatch({ type: 'RENDER_INDIVIDUAL_TASKS', payload: profile.id})
     this.props.dispatch({ type: 'RENDER_INDIVIDUAL_HISTORY', payload: profile.id})
@@ -45,8 +46,8 @@ class CurrentProfiles extends Component {
         <div >
           {this.props.reduxState.currentProfilesReducer.map((profile) => {
               return( 
-                <ul key={profile.id} id="currentProfiles">
-                  <li ><img id="profileImg" alt={profile.index} src={profile.student_pic}/></li>
+                <ul key={profile.index} id="currentProfiles">
+                  <li ><img id="profileImg" alt={profile.id} src={profile.student_pic}/></li>
                   <li id="profileName">{profile.name}</li>
                   <li id="allProfilesNote"><em>{profile.note}</em></li>
                   <li><button id="editButton">Edit</button></li>

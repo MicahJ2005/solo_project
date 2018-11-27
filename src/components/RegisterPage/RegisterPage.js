@@ -71,6 +71,7 @@ class RegisterPage extends Component {
               User Type:    
     
               <select name="userType" id="userType" type="userType" onChange={this.handleInputChangeFor('userType')}>
+                <option value="">Please chose a user type</option>
                   <option value="1">Parent</option>
                   <option value="2">Teacher</option>
               </select>
