@@ -5,7 +5,7 @@ import axios from 'axios';
 function* getProfiles(action) {
   console.log('getProfiles action', action.payload);
     try {
-        const response = yield call(axios.get, `/getStudentInfo/${action.payload.id}`)
+        const response = yield call(axios.get, `/getStudentInfo/${action.payload}`)
         console.log('getStudentInfo api response', response);
         yield put(({ type: 'SET_STUDENTS', payload: response.data}))
         
