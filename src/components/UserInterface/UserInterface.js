@@ -22,12 +22,12 @@ class UserInterface extends Component {
 
   handleClickOpen = () => {
     console.log('in handleClickOpen');
-    
+    this.setState({ note: ''});
     this.setState({ open: true });
   };
 
   handleClose = () => {
-    this.setState({ open: false });
+    this.setState({ open: false});
   };
 
 
@@ -56,7 +56,6 @@ class UserInterface extends Component {
         }
       ]
       })
- 
   }
 
   handleChange = event => {
