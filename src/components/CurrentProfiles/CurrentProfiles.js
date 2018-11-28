@@ -2,26 +2,30 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css';
-import axios from 'axios';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+
 
 class CurrentProfiles extends Component {
-  constructor() {
-    super();
-    this.state = {
-      profile: [],
-      editing: false,
-      loading: true,
-      showComponent: false,
+ state = {
       name: '',
       note: '',
-      student_pic: ''
-    }
+      student_pic: '',
+      open: false,
+  
   }
 
 
   componentDidMount() {
     this.props.dispatch({ type: 'RENDER_PROFILES', payload: this.props.reduxState.user.id })
-}
+  }
+
+
   removeProfile = (profile) => {
     confirmAlert({
       title: 'Delete Profile?',
@@ -41,9 +45,6 @@ class CurrentProfiles extends Component {
   }
 
   selectProfile = (profile) => {
-    console.log('profile', profile);
-
-    
     this.props.dispatch({ type: 'SELECT_PROFILE', payload: profile.id})
     this.props.dispatch({ type: 'RENDER_INDIVIDUAL_TASKS', payload: profile.id})
     this.props.dispatch({ type: 'RENDER_INDIVIDUAL_HISTORY', payload: profile.id})
@@ -52,9 +53,14 @@ class CurrentProfiles extends Component {
   }
 
 
-  onClickComponent = () => {
-    this.setState({ showComponent: true });
-  }
+  handleClickOpen = () => {
+    console.log('in handleClickOpen');
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false});
+  };
 
   handleName = (event) => {
     event.preventDefault();
@@ -77,25 +83,23 @@ class CurrentProfiles extends Component {
     });
   }
 
-  // handleUpdating - setting edit to true
-   handleUpdating = (event) => {
-     event.preventDefault();
-     this.setState({ editing: true })
-  }
-
-  handleEdit = (id) => {
-    axios.put(`/editProfile/${id}`, {
+  handleChange = event => {
+    this.setState({
+            [event.target.name]: event.target.value,
+    });
+    console.log('new state of note', this.state);
+    
+}
+  
+editProfile = profile => {
+  console.log('profile', profile);
+  this.props.dispatch({ type: 'EDIT_PROFILE', payload: {
       name: this.state.name,
       note: this.state.note,
-      student_pic: this.state.student_pic
-    })
-      .then(response => {
-        this.setState({ profile: response.data });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
+      student_pic: this.state.student_pic,
+      profileId: profile.id,
+  }})
+}
 
   render () {
       return (
@@ -110,10 +114,73 @@ class CurrentProfiles extends Component {
                   <li ><img id="profileImg" alt={profile.id} src={profile.student_pic}/></li>
                   <li id="profileName">{profile.name}</li>
                   <li id="allProfilesNote"><em>{profile.note}</em></li>
-                  <li><button id="editButton" onClick={this.onClickComponent}>Edit</button></li>
+                  <li><button id="editButton" onClick={this.handleClickOpen}>Edit</button></li>
                   <li><button id="selectButton" onClick={() => {this.selectProfile(profile)}}>Select</button></li>
                   <li><button id="deleteButton" onClick={() => {this.removeProfile(profile)}}>Remove</button></li>
-                  {this.state.showComponent ? <Form handleEdit={() => this.handleEdit(profile.id)} /> : null}
+                  <Dialog
+                    open={this.state.open}
+                    onClose={this.handleClose}
+                    // onSubmit={() => this.completeTask(this.props.reduxState.setNewTaskListReducer[0])}
+                    aria-labelledby="form-dialog-title"
+                  >
+                    <DialogTitle id="form-dialog-title">Edit Your Profile!</DialogTitle>
+                    <DialogContent>
+                      <DialogContentText>
+                        
+                      </DialogContentText>
+                      <TextField
+                        onChange={this.handleChange}
+                        value={this.state.name}
+                        name="name"
+                        autoFocus
+                        margin="dense"
+                        id="name"
+                        label="Update Profile Name"
+                        type="text"
+                        fullWidth
+                      />
+                    </DialogContent>
+                    <DialogContent>
+                      <DialogContentText>
+                    
+                      </DialogContentText>
+                      <TextField
+                        onChange={this.handleChange}
+                        value={this.state.note}
+                        name="note"
+                        autoFocus
+                        margin="dense"
+                        id="note"
+                        label="Update Profile Note"
+                        type="text"
+                        fullWidth
+                      />
+                    </DialogContent>
+                    <DialogContent>
+                      <DialogContentText>
+                      </DialogContentText>
+                      <TextField
+                        onChange={this.handleChange}
+                        value={this.state.student_pic}
+                        name="student_pic"
+                        autoFocus
+                        margin="dense"
+                        id="student_pic"
+                        label="Update Profile Image"
+                        type="text"
+                        fullWidth
+                      />
+                    </DialogContent>
+                    <DialogActions>
+                      <Button onClick={this.handleClose} color="primary">
+                        Cancel
+                      </Button>
+                      <Button onClick={() => this.editProfile(profile)}color="primary" >
+                        Complete
+                      </Button>
+                    </DialogActions>
+                  </Dialog>
+                
                 </ul>
               )
             })}
@@ -123,22 +190,7 @@ class CurrentProfiles extends Component {
   }
 }
 
-const Form = (props) => {
-  return (
-      <form onSubmit={() => props.handleEdit(props.id)}>
-        <label>
-          Name: <input type="text" name="name" value={props.name} onChange={()=>this.handleChange} />
-        </label>
-        <label>
-          Note: <input type="text" name="note" value={props.note} onChange={()=>this.handleChange} />
-        </label>
-        <label>
-          Image: <input type="text" name="student_pic" value={props.student_pic} onChange={()=>this.handleChange} />
-        </label>
-        <input type="submit" value="Update" />
-      </form>
-  );
-}
+
 
 const mapStateToProps = reduxState => ({
   reduxState,
