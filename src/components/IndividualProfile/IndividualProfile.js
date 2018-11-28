@@ -10,7 +10,7 @@ const newTask = {
   image: '', 
   student_id: '',
   task_name: '',
-  count: '',
+  
  
 }
 
