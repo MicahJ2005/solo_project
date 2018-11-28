@@ -62,26 +62,26 @@ class CurrentProfiles extends Component {
     this.setState({ open: false});
   };
 
-  handleName = (event) => {
-    event.preventDefault();
-    this.setState({
-      name: event.target.value
-    });
-  }
+  // handleName = (event) => {
+  //   event.preventDefault();
+  //   this.setState({
+  //     name: event.target.value
+  //   });
+  // }
 
-  handleNote = (event) => {
-    event.preventDefault();
-    this.setState({
-      note: event.target.value
-    });
-  }
+  // handleNote = (event) => {
+  //   event.preventDefault();
+  //   this.setState({
+  //     note: event.target.value
+  //   });
+  // }
 
-  handleImage = (event) => {
-    event.preventDefault();
-    this.setState({
-      student_pic: event.target.value
-    });
-  }
+  // handleImage = (event) => {
+  //   event.preventDefault();
+  //   this.setState({
+  //     student_pic: event.target.value
+  //   });
+  // }
 
   handleChange = event => {
     this.setState({
@@ -98,6 +98,7 @@ editProfile = profile => {
       note: this.state.note,
       student_pic: this.state.student_pic,
       profileId: profile.id,
+      profileUserId: profile.user_id
   }})
 }
 

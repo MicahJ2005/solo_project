@@ -15,6 +15,7 @@ import deleteCurrentTask from './deleteCurrentTaskSaga';
 import deleteThisLibraryTask from './deleteLibraryTaskSaga';
 import deleteCompletedTask from './deleteCompletedTaskSaga';
 import addCompletedTask from './addCompletedTaskSaga';
+import editProfileSaga from './editProfileSaga';
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
@@ -40,5 +41,6 @@ export default function* rootSaga() {
     deleteThisLibraryTask(),
     deleteCompletedTask(),
     addCompletedTask(),
+    editProfileSaga(),
   ]);
 }
