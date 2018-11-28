@@ -6,16 +6,16 @@ router.put('/:id', (req, res) => {
     console.log('PUT req.body', req.body);
     
     const reqId = req.body.profileId
-    const newNote = req.body.note;
     const newName = req.body.name;
+    const newNote = req.body.note;
     const newImage = req.body.student_pic;
     const queryText = `UPDATE student_info 
     SET ("name", "note", "student_pic") 
     = ($1, $2, $3)
     WHERE student_info.id=${reqId};`;
     const queryValues = [
-        newNote,
         newName,
+        newNote,
         newImage
     ];
     pool.query(queryText, queryValues)

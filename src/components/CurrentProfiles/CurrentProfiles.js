@@ -53,8 +53,13 @@ class CurrentProfiles extends Component {
   }
 
 
-  handleClickOpen = () => {
-    console.log('in handleClickOpen');
+  handleClickOpen = (profile) => {
+    console.log('in handleClickOpen profile', profile);
+    this.setState({ 
+      name: profile.name,
+      note: profile.note,
+      student_pic: profile.student_pic,
+    })
     this.setState({ open: true });
   };
 
@@ -62,26 +67,6 @@ class CurrentProfiles extends Component {
     this.setState({ open: false});
   };
 
-  // handleName = (event) => {
-  //   event.preventDefault();
-  //   this.setState({
-  //     name: event.target.value
-  //   });
-  // }
-
-  // handleNote = (event) => {
-  //   event.preventDefault();
-  //   this.setState({
-  //     note: event.target.value
-  //   });
-  // }
-
-  // handleImage = (event) => {
-  //   event.preventDefault();
-  //   this.setState({
-  //     student_pic: event.target.value
-  //   });
-  // }
 
   handleChange = event => {
     this.setState({
@@ -100,22 +85,23 @@ editProfile = profile => {
       profileId: profile.id,
       profileUserId: profile.user_id
   }})
+  this.setState({ open: false});
 }
 
   render () {
       return (
-
+        
       ///Map all profiles with cards
       <div> 
         <h1>Profiles</h1>
         <div >
           {this.props.reduxState.currentProfilesReducer.map((profile) => {
               return( 
-                <ul key={profile.id} id="currentProfiles" onChange={() => this.handleUpdating}>
+                <ul key={profile.id} id="currentProfiles" >
                   <li ><img id="profileImg" alt={profile.id} src={profile.student_pic}/></li>
                   <li id="profileName">{profile.name}</li>
                   <li id="allProfilesNote"><em>{profile.note}</em></li>
-                  <li><button id="editButton" onClick={this.handleClickOpen}>Edit</button></li>
+                  <li><button id="editButton" onClick={() => {this.handleClickOpen(profile)}}>Edit</button></li>
                   <li><button id="selectButton" onClick={() => {this.selectProfile(profile)}}>Select</button></li>
                   <li><button id="deleteButton" onClick={() => {this.removeProfile(profile)}}>Remove</button></li>
                   <Dialog
