@@ -9,7 +9,7 @@ router.post('/', (req, res) => {
                         ("task_name", "student_id", "note")
                        VALUES ($1, $2, $3)`;
                     
-    pool.query(queryText, [req.body.task_name, req.body.student_id, req.body.note])
+    pool.query(queryText, [req.body.taskName, req.body.taskUserId, req.body.note])
         .then((results) => {
             res.sendStatus(201);
          }).catch((error) => {

@@ -32,17 +32,24 @@ class UserInterface extends Component {
 
 
   completeTask = (tasktoComplete) => {  
-    
-
+    console.log('tasktoComplete', tasktoComplete);
+    this.setState({ open: false });
     confirmAlert({
       title: 'Complete Task?',
       message: 'Are you sure you are done?',
       buttons: [
         {
           label: 'Yes',
-          onClick: () => this.props.dispatch({ type: 'ADD_COMPLETED_TASK', payload: tasktoComplete})
+          onClick: () => this.props.dispatch({ type: 'ADD_COMPLETED_TASK', payload: {
+            taskName: tasktoComplete.task_name,
+            taskId: tasktoComplete.id,
+            taskUserId: tasktoComplete.student_id,
+            taskImage: tasktoComplete.image,
+            note: this.state.note,
+          }}) 
           
         },
+
         {
           label: 'No',
           onClick: () => alert('Click No')
@@ -52,6 +59,13 @@ class UserInterface extends Component {
  
   }
 
+  handleChange = event => {
+    this.setState({
+            [event.target.name]: event.target.value,
+    });
+    console.log('new state of note', this.state.note);
+    
+}
   
 
   render () {
@@ -65,17 +79,21 @@ class UserInterface extends Component {
             <Dialog
               open={this.state.open}
               onClose={this.handleClose}
+              // onSubmit={() => this.completeTask(this.props.reduxState.setNewTaskListReducer[0])}
               aria-labelledby="form-dialog-title"
             >
               <DialogTitle id="form-dialog-title">Complete Task!</DialogTitle>
               <DialogContent>
                 <DialogContentText>
-                  Before you complete this task, would you like to add a note?
+                  Would you like to add a note to you completed task? (you don't have to)
                 </DialogContentText>
                 <TextField
+                  onChange={this.handleChange}
+                  value={this.state.note}
+                  name="note"
                   autoFocus
                   margin="dense"
-                  id="name"
+                  id="note"
                   label="Task Note"
                   type="text"
                   fullWidth
@@ -85,7 +103,7 @@ class UserInterface extends Component {
                 <Button onClick={this.handleClose} color="primary">
                   Cancel
                 </Button>
-                <Button onClick={this.handleClose} color="primary">
+                <Button onClick={() => this.completeTask(this.props.reduxState.setNewTaskListReducer[0])}color="primary" >
                   Complete
                 </Button>
               </DialogActions>
