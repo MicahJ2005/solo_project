@@ -86,35 +86,6 @@ class CurrentProfiles extends Component {
   editProfile = profile => {
 
     this.setState({ open: false });
-    // confirmAlert({
-    //   title: 'Update Profile?',
-    //   message: 'Are you sure you want to update your profile?',
-    //   buttons: [
-    //     {
-    //       label: 'Yes',
-    //       onClick: () => this.props.dispatch({ type: 'EDIT_PROFILE', payload: {
-    //         name: this.state.name,
-    //         note: this.state.note,
-    //         student_pic: this.state.student_pic,
-    //         profileId: profile.id,
-    //         profileUserId: profile.user_id,
-    //     }
-
-    //   })
-
-    //     },
-
-    //     {
-    //       label: 'No',
-    //       onClick: () => alert('Click No')
-    //     }
-    //   ]
-    //   })
-
-    // }
-
-
-
     this.props.dispatch({
       type: 'EDIT_PROFILE', payload: {
         name: this.state.name,

@@ -100,7 +100,7 @@ class IndividualProfile extends Component {
                         <li><img onClick={() => this.handleChange(task)} value={task.id} id="taskImg" name="task"  alt= "task" src={task.image}/>
                         </li>
                       <li>{task.task_name}</li>
-                      <button id="profiledeleteButton" onClick={() => {this.removeLibraryTask(task)}}>Remove</button>
+                      <button id="taskLibraryDeleteButton" onClick={() => {this.removeLibraryTask(task)}}>Remove</button>
                   </div>
                 )
               })}

@@ -75,6 +75,9 @@ class UserInterface extends Component {
         <div id="uiImage1bg" >
             <h1 id="firstText">First</h1>
             <img onClick={this.handleClickOpen} id="uiImage1" src={this.props.reduxState.setNewTaskListReducer[0].image} alt="img1"/>
+            <div >
+              <h2 id="uiTaskName1">{this.props.reduxState.setNewTaskListReducer[0].task_name}</h2>
+            </div>
             <Dialog
               open={this.state.open}
               onClose={this.handleClose}
@@ -118,6 +121,9 @@ class UserInterface extends Component {
         <div id="uiImage2bg" >
           <h1 id="thenText">Then</h1>
           <img id="uiImage2" src={this.props.reduxState.setNewTaskListReducer[1].image} alt="img2"/>
+        <div>
+          <h2 id="uiTaskName2">{this.props.reduxState.setNewTaskListReducer[1].task_name}</h2>
+        </div>
         </div>
       </div>
     )

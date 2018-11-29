@@ -102,20 +102,22 @@ input {
 }
 
 #firstText{
-    float: left;
-    margin-left: 40%;
+    text-align: center;
+    margin-top: 2%;
+    margin-left: 0%;
     margin-bottom: 0;
-    /* text-align: center; */
 }
 
 #uiImage1bg{
+    float:left;
     border-radius: 40px;
     background-color: rgb(156, 207, 140);
-    height: 520px;
+    height: 560px;
     width:650px;
     border-radius: 8px;
     margin-left: 30px;
     margin-top: 30px;
+    margin-right: 0px;
     box-shadow: 3px 3px grey, -1em 0 .4em dimgray;
 }
 
@@ -141,11 +143,11 @@ input {
     float: right;
     border-radius: 40px;
     background-color: rgb(156, 207, 140);
-    height: 520px;
+    height: 560px;
     width:650px;
     border-radius: 8px;
-    margin-left: 5px;
-    margin-top: -520px;
+    margin-left: 0;
+    margin-top: 30px;
     margin-right: 30px;
     box-shadow: 3px 3px grey, -1em 0 .4em dimgray;
 }
@@ -263,7 +265,7 @@ li{
     border-radius: 250px 0px;
     background-color: #256652;
     color: white;
-    box-shadow: 3px 3px darkgreen;
+    box-shadow: 3px 3px darkgreen, -1em 0 .4em dimgray;
 }
 
 #profileName{
@@ -299,13 +301,14 @@ li{
 #taskImgBox{
     float:left;
     width: 100px;
-    height: 130px;
+    height: 150px;
     background-color: #9cc28e;
     background-position: center center;
     border-radius: 10px;
     background-repeat: no-repeat;
     margin-bottom: 3px;
     margin-right: 3px;
+    
 }
 
 #taskImgBox:active {
@@ -329,7 +332,7 @@ li{
     border-radius: 250px 0px;
     background-color: #256652;
     color: white;
-    box-shadow: 3px 3px darkgreen;
+    box-shadow: 3px 3px darkgreen, -1em 0 .4em dimgray;
 }
 
 #returnToProfileButton{
@@ -342,7 +345,7 @@ li{
     border-radius: 250px 0px;
     background-color: #256652;
     color: white;
-    box-shadow: 3px 3px darkgreen;
+    box-shadow: 3px 3px darkgreen, -1em 0 .4em dimgray;
 }
 
 #UserPage{
@@ -423,6 +426,7 @@ th, td {
     background-repeat: no-repeat;
     margin: 20px;
     text-align: center;
+    box-shadow: 3px 3px grey, -1em 0 .4em dimgray;
 
 }
 #selectTaskButton{
@@ -452,14 +456,27 @@ th, td {
     background-repeat: no-repeat;
     margin: 0;
     text-align: center;
+    box-shadow: 3px 3px grey, -1em 0 .4em dimgray;
 }
 
 #currentTaskListImage {
-    max-width: 700px;
-    height: 100px;
-    margin-right: 5%;
-    margin-top: 5%;
-    float: left
+    height: 120px;
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: 10%;
+    width: 75%;
+    text-align: center;
+}
+
+#currentTaskImageBG{
+    float:left;
+    background-color: rgb(203, 231, 171);
+    background-position: center center;
+    border-radius: 50px;
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 220px;
+    margin-left: 3%;
 }
 
 #currentProfileButtons{
@@ -495,4 +512,58 @@ th, td {
 h3{
     margin-top: 20px;
     
+}
+
+#currentTaskListHeader{
+    margin-left: 4%;
+    margin-bottom: 4%;
+    margin-top: 1%;
+    text-align: center;
+    background-color: #9cc28e;
+    height: 1%;
+    width: 95%;
+    -moz-border-radius: 150px 0px;
+    -webkit-border-radius: 120px 0px;
+    border-radius: 250px 0px;
+    box-shadow: 3px 3px grey, -1em 0 .4em dimgray;
+}
+
+#startScheduleButton{
+    float: right;
+    font-size: 18px;
+    margin-right: 5%;
+    margin-top: 50%;
+    margin-bottom: 5%;
+    width: 150px;
+    height: 50px;
+    -moz-border-radius: 150px 0px;
+    -webkit-border-radius: 120px 0px;
+    border-radius: 250px 0px;
+    background-color: #256652;
+    color: white;
+    box-shadow: 3px 3px darkgreen, -1em 0 .4em dimgray;
+}
+
+#taskLibraryDeleteButton{
+    margin-top: 10%;
+    margin-bottom: -10%;
+    width: 90px;
+    height: 20px;
+    -moz-border-radius: 150px 0px;
+    -webkit-border-radius: 120px 0px;
+    border-radius: 250px 0px;
+    background-color: #256652;
+    color: white;
+    box-shadow: 3px 3px darkgreen;
+}
+
+#uiTaskName1{
+    float: left;
+    margin-left: 40%;
+
+}
+
+#uiTaskName2{
+    float: right;
+    margin-right: 35%
 }
