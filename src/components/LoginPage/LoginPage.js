@@ -7,6 +7,8 @@ class LoginPage extends Component {
     password: '',
   };
 
+  
+
   login = (event) => {
     event.preventDefault();
 
@@ -31,8 +33,26 @@ class LoginPage extends Component {
 
   render() {
     return (
-      
+    
+      <div id="leaves">
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i> 
       <div id="newLogin">
+        
+        
         {this.props.errors.loginMessage && (
           <h2
             className="alert"
@@ -83,6 +103,7 @@ class LoginPage extends Component {
             Register
           </button>
         </center>
+        </div>
       </div>
     );
   }

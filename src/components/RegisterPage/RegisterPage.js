@@ -33,6 +33,22 @@ class RegisterPage extends Component {
 
   render() {
     return (
+      <div id="leaves">
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i> 
       <div id="newLogin">
         {this.props.errors.registrationMessage && (
           <h2
@@ -96,6 +112,7 @@ class RegisterPage extends Component {
             Login
           </button>
         </center>
+      </div>
       </div>
     );
   }
