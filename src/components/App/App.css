@@ -136,7 +136,8 @@ input {
 
 #thenText{
     text-align: center;
-    margin-bottom: 19px;
+    margin-bottom: 30px;
+    margin-top:3px;
 }
 
 #uiImage2bg{
@@ -461,10 +462,10 @@ th, td {
 
 #currentTaskListImage {
     height: 120px;
-    margin-right: 0;
-    margin-left: 0;
+    margin-right: 10px;
+    margin-left: -5px;
     margin-top: 10%;
-    width: 75%;
+    width: 80%;
     text-align: center;
 }
 
@@ -477,6 +478,7 @@ th, td {
     width: 150px;
     height: 220px;
     margin-left: 3%;
+    box-shadow: 3px 3px grey, -1em 0 .4em dimgray;
 }
 
 #currentProfileButtons{
@@ -559,11 +561,40 @@ h3{
 
 #uiTaskName1{
     float: left;
-    margin-left: 40%;
+    margin-left: 45%;
 
 }
 
 #uiTaskName2{
     float: right;
-    margin-right: 35%
+    margin-right: 40%
+}
+
+#firstTextBG{
+    -moz-border-radius: 150px 0px;
+    -webkit-border-radius: 120px 0px;
+    border-radius: 250px 0px;
+    background-color: #256652; 
+    width: 25%;
+    height: 9%;
+    float: left;
+    margin-left: 40%;
+    margin-top: 2%;
+    box-shadow: 3px 3px grey, -1em 0 .4em dimgray;
+    color: rgb(223, 231, 212);
+}
+
+#thenTextBG{
+    -moz-border-radius: 150px 0px;
+    -webkit-border-radius: 120px 0px;
+    border-radius: 250px 0px;
+    background-color: #256652; 
+    width: 25%;
+    height: 9%;
+    float: left;
+    margin-left: 40%;
+    margin-top: 2%;
+    margin-bottom: 20px;
+    box-shadow: 3px 3px grey, -1em 0 .4em dimgray;
+    color: rgb(223, 231, 212);
 }

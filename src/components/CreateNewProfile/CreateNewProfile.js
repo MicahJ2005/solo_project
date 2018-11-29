@@ -48,7 +48,7 @@ class CreateNewProfile extends Component {
                     <br></br>
                 <form onSubmit={this.submitForm} id="newProfile">  
                     <input name="name" type="text" placeholder="Add Student Name" value={this.state.name} onChange={this.handleChange}/>
-                    <input name="student_pic" type="text" placeholder="Add Image" value={this.state.student_pic} onChange={this.handleChange}/>
+                    <input name="student_pic" type="text" placeholder="Add Image URL" value={this.state.student_pic} onChange={this.handleChange}/>
                     <input name="note" type="text" placeholder="Add a Note" value={this.state.note} onChange={this.handleChange}/>
                     <input id="selectButton" type="submit" value="submit"></input>
                     <h2>You are Awesome!</h2>
