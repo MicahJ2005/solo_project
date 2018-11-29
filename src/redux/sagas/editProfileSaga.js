@@ -7,8 +7,7 @@ function* editProfile(action) {
     
     try {
         yield call(axios.put, `/editProfile/${action.payload.profileId}`, action.payload);
-        yield put({ type: 'RENDER_PROFILES', payload: action.payload.profileUserId} )
-        // yield put({ type: 'RENDER_INDIVIDUAL_TASKS', payload: action.payload.student_id } )
+        yield put({ type: 'RENDER_PROFILES', payload: action.payload.profileUserId } )
 
     } catch (error) {
         console.log(error);

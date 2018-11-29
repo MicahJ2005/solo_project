@@ -11,6 +11,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 
+
 class CurrentProfiles extends Component {
  state = {
       name: '',
@@ -21,7 +22,7 @@ class CurrentProfiles extends Component {
   }
 
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.dispatch({ type: 'RENDER_PROFILES', payload: this.props.reduxState.user.id })
   }
 
@@ -77,7 +78,8 @@ class CurrentProfiles extends Component {
 }
   
 editProfile = profile => {
-  console.log('profile', profile);
+  
+  this.setState({ open: false});
   this.props.dispatch({ type: 'EDIT_PROFILE', payload: {
       name: this.state.name,
       note: this.state.note,
@@ -85,13 +87,12 @@ editProfile = profile => {
       profileId: profile.id,
       profileUserId: profile.user_id
   }})
-  this.setState({ open: false});
+  window.location.reload();
 }
 
   render () {
       return (
         
-      ///Map all profiles with cards
       <div> 
         <h1>Profiles</h1>
         <div >
@@ -182,5 +183,6 @@ editProfile = profile => {
 const mapStateToProps = reduxState => ({
   reduxState,
 });
+
 
 export default connect(mapStateToProps) (CurrentProfiles);

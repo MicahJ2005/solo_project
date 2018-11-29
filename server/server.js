@@ -25,6 +25,9 @@ const deleteCompletedTask = require('./routes/deleteCompletedTask.router');
 const addCompletedTask =require('./routes/addCompletedTask.router');
 const updateCompletedTaskNote = require('./routes/editCompletedTaskNote.router');
 const editProfile = require('./routes/editProfile.router');
+
+// injectTapEventPlugin = require('react-tap-event-plugin');
+// injectTapEventPlugin();
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
