@@ -9,16 +9,19 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import swal from 'sweetalert';
 
 
 
 class CurrentProfiles extends Component {
- state = {
-      name: '',
-      note: '',
-      student_pic: '',
-      open: false,
-  
+  state = {
+    name: '',
+    note: '',
+    student_pic: '',
+    profileId: '',
+    profileUserId: '',
+    open: false,
+
   }
 
 
@@ -34,8 +37,8 @@ class CurrentProfiles extends Component {
       buttons: [
         {
           label: 'Yes',
-          onClick: () => this.props.dispatch({ type: 'DELETE_PROFILE', payload: profile})
-          
+          onClick: () => this.props.dispatch({ type: 'DELETE_PROFILE', payload: profile })
+
         },
         {
           label: 'No',
@@ -46,133 +49,171 @@ class CurrentProfiles extends Component {
   }
 
   selectProfile = (profile) => {
-    this.props.dispatch({ type: 'SELECT_PROFILE', payload: profile.id})
-    this.props.dispatch({ type: 'RENDER_INDIVIDUAL_TASKS', payload: profile.id})
-    this.props.dispatch({ type: 'RENDER_INDIVIDUAL_HISTORY', payload: profile.id})
-    this.props.dispatch({ type: 'GET_SELECTED_TASKLIST', payload: profile.id})
+    this.props.dispatch({ type: 'SELECT_PROFILE', payload: profile.id })
+    this.props.dispatch({ type: 'RENDER_INDIVIDUAL_TASKS', payload: profile.id })
+    this.props.dispatch({ type: 'RENDER_INDIVIDUAL_HISTORY', payload: profile.id })
+    this.props.dispatch({ type: 'GET_SELECTED_TASKLIST', payload: profile.id })
     this.props.history.push('/IndividualProfile')
   }
 
 
   handleClickOpen = (profile) => {
     console.log('in handleClickOpen profile', profile);
-    this.setState({ 
+    this.setState({
       name: profile.name,
       note: profile.note,
       student_pic: profile.student_pic,
+      profileId: profile.id,
+      profileUserId: profile.user_id,
+      open: true,
     })
-    this.setState({ open: true });
   };
 
   handleClose = () => {
-    this.setState({ open: false});
+    this.setState({ open: false });
+    // window.location.reload();
   };
 
 
   handleChange = event => {
     this.setState({
-            [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value,
     });
     console.log('new state of note', this.state);
-    
-}
-  
-editProfile = profile => {
-  
-  this.setState({ open: false});
-  this.props.dispatch({ type: 'EDIT_PROFILE', payload: {
-      name: this.state.name,
-      note: this.state.note,
-      student_pic: this.state.student_pic,
-      profileId: profile.id,
-      profileUserId: profile.user_id
-  }})
-  window.location.reload();
-}
 
-  render () {
-      return (
-        
-      <div> 
+  }
+
+  editProfile = profile => {
+
+    this.setState({ open: false });
+    // confirmAlert({
+    //   title: 'Update Profile?',
+    //   message: 'Are you sure you want to update your profile?',
+    //   buttons: [
+    //     {
+    //       label: 'Yes',
+    //       onClick: () => this.props.dispatch({ type: 'EDIT_PROFILE', payload: {
+    //         name: this.state.name,
+    //         note: this.state.note,
+    //         student_pic: this.state.student_pic,
+    //         profileId: profile.id,
+    //         profileUserId: profile.user_id,
+    //     }
+
+    //   })
+
+    //     },
+
+    //     {
+    //       label: 'No',
+    //       onClick: () => alert('Click No')
+    //     }
+    //   ]
+    //   })
+
+    // }
+
+
+
+    this.props.dispatch({
+      type: 'EDIT_PROFILE', payload: {
+        name: this.state.name,
+        note: this.state.note,
+        student_pic: this.state.student_pic,
+        profileId: this.state.profileId,
+        profileUserId: this.state.profileUserId
+      }
+    })
+    swal("You are Awesome!", "Profile Successfully Updated!", "success");
+  }
+
+  render() {
+    return (
+
+      <div>
         <h1>Profiles</h1>
         <div >
           {this.props.reduxState.currentProfilesReducer.map((profile) => {
-              return( 
-                <ul key={profile.id} id="currentProfiles" >
-                  <li ><img id="profileImg" alt={profile.id} src={profile.student_pic}/></li>
-                  <li id="profileName">{profile.name}</li>
-                  <li id="allProfilesNote"><em>{profile.note}</em></li>
-                  <li><button id="editButton" onClick={() => {this.handleClickOpen(profile)}}>Edit</button></li>
-                  <li><button id="selectButton" onClick={() => {this.selectProfile(profile)}}>Select</button></li>
-                  <li><button id="deleteButton" onClick={() => {this.removeProfile(profile)}}>Remove</button></li>
-                  <Dialog
-                    open={this.state.open}
-                    onClose={this.handleClose}
-                    // onSubmit={() => this.completeTask(this.props.reduxState.setNewTaskListReducer[0])}
-                    aria-labelledby="form-dialog-title"
-                  >
-                    <DialogTitle id="form-dialog-title">Edit Your Profile!</DialogTitle>
-                    <DialogContent>
-                      <DialogContentText>
-                        
-                      </DialogContentText>
-                      <TextField
-                        onChange={this.handleChange}
-                        value={this.state.name}
-                        name="name"
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label="Update Profile Name"
-                        type="text"
-                        fullWidth
-                      />
-                    </DialogContent>
-                    <DialogContent>
-                      <DialogContentText>
-                    
-                      </DialogContentText>
-                      <TextField
-                        onChange={this.handleChange}
-                        value={this.state.note}
-                        name="note"
-                        autoFocus
-                        margin="dense"
-                        id="note"
-                        label="Update Profile Note"
-                        type="text"
-                        fullWidth
-                      />
-                    </DialogContent>
-                    <DialogContent>
-                      <DialogContentText>
-                      </DialogContentText>
-                      <TextField
-                        onChange={this.handleChange}
-                        value={this.state.student_pic}
-                        name="student_pic"
-                        autoFocus
-                        margin="dense"
-                        id="student_pic"
-                        label="Update Profile Image"
-                        type="text"
-                        fullWidth
-                      />
-                    </DialogContent>
-                    <DialogActions>
-                      <Button onClick={this.handleClose} color="primary">
-                        Cancel
-                      </Button>
-                      <Button onClick={() => this.editProfile(profile)}color="primary" >
-                        Complete
-                      </Button>
-                    </DialogActions>
-                  </Dialog>
-                
-                </ul>
-              )
-            })}
-          </div> 
+            return (
+              <ul key={profile.id} id="currentProfiles" >
+                <li ><img id="profileImg" alt={profile.id} src={profile.student_pic} /></li>
+                <li id="profileName">{profile.name}</li>
+                <li id="allProfilesNote"><em>{profile.note}</em></li>
+                <div id="currentProfileButtons">
+                  <li><button id="editButton" onClick={() => { this.handleClickOpen(profile) }}>Edit</button></li>
+                  <li><button id="selectButton" onClick={() => { this.selectProfile(profile) }}>Select</button></li>
+                  <li><button id="deleteButton" onClick={() => { this.removeProfile(profile) }}>Remove</button></li>
+                </div>
+              </ul>
+            )
+          })}
+        </div>
+
+        <Dialog
+          open={this.state.open}
+          onClose={this.handleClose}
+          // onSubmit={() => this.completeTask(this.props.reduxState.setNewTaskListReducer[0])}
+          aria-labelledby="form-dialog-title"
+        >
+          <p>Hello</p>
+          <DialogTitle id="form-dialog-title">Edit Your Profile!</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+
+            </DialogContentText>
+            <TextField
+              onChange={this.handleChange}
+              value={this.state.name}
+              name="name"
+              autoFocus
+              margin="dense"
+              id="name"
+              label="Update Profile Name"
+              type="text"
+              fullWidth
+            />
+          </DialogContent>
+          <DialogContent>
+            <DialogContentText>
+
+            </DialogContentText>
+            <TextField
+              onChange={this.handleChange}
+              value={this.state.note}
+              name="note"
+              autoFocus
+              margin="dense"
+              id="note"
+              label="Update Profile Note"
+              type="text"
+              fullWidth
+            />
+          </DialogContent>
+          <DialogContent>
+            <DialogContentText>
+            </DialogContentText>
+            <TextField
+              onChange={this.handleChange}
+              value={this.state.student_pic}
+              name="student_pic"
+              autoFocus
+              margin="dense"
+              id="student_pic"
+              label="Update Profile Image"
+              type="text"
+              fullWidth
+            />
+          </DialogContent>
+
+          <DialogActions>
+            <Button onClick={this.handleClose} color="primary">
+              Cancel
+            </Button>
+            <Button onClick={() => this.editProfile()} color="primary" >
+              Complete
+            </Button>
+          </DialogActions>
+        </Dialog>
       </div>
     )
   }
@@ -185,4 +226,4 @@ const mapStateToProps = reduxState => ({
 });
 
 
-export default connect(mapStateToProps) (CurrentProfiles);
+export default connect(mapStateToProps)(CurrentProfiles);

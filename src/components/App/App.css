@@ -198,12 +198,14 @@ li{
     -moz-border-radius: 150px 0px;
     -webkit-border-radius: 120px 0px;
     border-radius: 250px 0px;
+    box-shadow: 3px 3px grey, -1em 0 .4em dimgray;
 }
 
 
 #editButton{
     margin-top: 10%;
-    width: 90px;
+    width: 110px;
+    height: 30px;
     -moz-border-radius: 150px 0px;
     -webkit-border-radius: 120px 0px;
     border-radius: 250px 0px;
@@ -215,7 +217,8 @@ li{
 
 #selectButton{
     margin-top: 10%;
-    width: 90px;
+    width: 110px;
+    height: 30px;
     -moz-border-radius: 150px 0px;
     -webkit-border-radius: 120px 0px;
     border-radius: 250px 0px;
@@ -226,7 +229,20 @@ li{
 
 #deleteButton{
     margin-top: 10%;
+    width: 110px;
+    height: 30px;
+    -moz-border-radius: 150px 0px;
+    -webkit-border-radius: 120px 0px;
+    border-radius: 250px 0px;
+    background-color: #256652;
+    color: white;
+    box-shadow: 3px 3px darkgreen;
+}
+
+#profiledeleteButton{
+    margin-top: 10%;
     width: 90px;
+    height: 20px;
     -moz-border-radius: 150px 0px;
     -webkit-border-radius: 120px 0px;
     border-radius: 250px 0px;
@@ -237,10 +253,11 @@ li{
 
 #historyButton{
     float: right; 
+    font-size: 18px;
     margin-top: 40%;
     margin-right: -25%;
-    width: 110px;
-    height: 30px;
+    width: 150px;
+    height: 50px;
     -moz-border-radius: 150px 0px;
     -webkit-border-radius: 120px 0px;
     border-radius: 250px 0px;
@@ -301,10 +318,12 @@ li{
 
 #previewScheduleButton{
     float: right;
+    font-size: 18px;
     margin-right: 5%;
     margin-top: 10%;
     margin-bottom: 5%;
-    width: 100px;
+    width: 150px;
+    height: 50px;
     -moz-border-radius: 150px 0px;
     -webkit-border-radius: 120px 0px;
     border-radius: 250px 0px;
@@ -409,7 +428,8 @@ th, td {
 #selectTaskButton{
     margin-left: 10px;
     margin-top: 10px;
-    width: 70px;
+    width: 90px;
+    height: 30px;
     -moz-border-radius: 150px 0px;
     -webkit-border-radius: 120px 0px;
     border-radius: 250px 0px;
@@ -442,3 +462,37 @@ th, td {
     float: left
 }
 
+#currentProfileButtons{
+    margin-top: 55%;
+}
+
+#addTaskHeader{
+    margin-left: 10%;
+    text-align: center;
+    background-color: #9cc28e;
+    height: 20%;
+    width: 80%;
+    -moz-border-radius: 150px 0px;
+    -webkit-border-radius: 120px 0px;
+    border-radius: 250px 0px;
+    
+}
+
+#libraryHeader{
+    margin-left: 2%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    text-align: center;
+    background-color: #9cc28e;
+    height: 1%;
+    width: 95%;
+    -moz-border-radius: 150px 0px;
+    -webkit-border-radius: 120px 0px;
+    border-radius: 250px 0px;
+    
+}
+
+h3{
+    margin-top: 20px;
+    
+}

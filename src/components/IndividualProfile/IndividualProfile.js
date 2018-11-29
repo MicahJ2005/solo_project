@@ -90,15 +90,17 @@ class IndividualProfile extends Component {
             </section>
             
             <section id="taskLibrary">
-              <h2>{individual.name}'s Task Library</h2>
-              <h6>(click on an image to add it to your task list task)</h6>
+              <div id="libraryHeader">
+                <h2>{individual.name}'s Task Library</h2>
+                <h6>(click on an image to add it to your task list task)</h6>
+              </div>
                 {this.props.reduxState.setIndividualTasksReducer.map( task => {
                   return(
                   <div key={task.index} id="taskImgBox">
                         <li><img onClick={() => this.handleChange(task)} value={task.id} id="taskImg" name="task"  alt= "task" src={task.image}/>
                         </li>
                       <li>{task.task_name}</li>
-                      <button id="selectButton" onClick={() => {this.removeLibraryTask(task)}}>Remove</button>
+                      <button id="profiledeleteButton" onClick={() => {this.removeLibraryTask(task)}}>Remove</button>
                   </div>
                 )
               })}
