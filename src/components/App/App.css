@@ -380,7 +380,7 @@ li{
     padding: 20px;
     border-radius: 2px;
     width: 900px; 
-    height: 800px;
+    height: 900px;
      background-color: #A0DE21; 
     -moz-border-radius: 250px 0px;
     -webkit-border-radius: 150px 0px;
@@ -396,7 +396,7 @@ th, td {
     margin-left: 5%;
     text-align: left;
     /* border: 1px solid black; */
-    width: 45%;
+    width: 35%;
     background-position: center center;
     border-radius: 10px;
     background-repeat: no-repeat;

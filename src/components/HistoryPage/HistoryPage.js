@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import moment from 'moment';
 
 class HistoryPage extends Component {
 
@@ -38,7 +39,7 @@ class HistoryPage extends Component {
               <tbody key={history.index} id="tableBody">
                 <tr>
                   <td>{history.task_name}</td>
-                  <td>{history.date_completed}</td>
+                  <td>{moment(history.date_completed).format('LLLL')}</td>
                   <td>{history.note}</td>
                 </tr>
               </tbody>
