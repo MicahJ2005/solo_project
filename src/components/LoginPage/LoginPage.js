@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import LeafPage from '../LeafPage/LeafPage'
 
 class LoginPage extends Component {
   state = {
@@ -33,23 +34,8 @@ class LoginPage extends Component {
 
   render() {
     return (
-    
-      <div id="leaves">
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i> 
+      <div>
+      <LeafPage />
       <div id="newLogin">
         
         
@@ -103,7 +89,7 @@ class LoginPage extends Component {
             Register
           </button>
         </center>
-        </div>
+      </div>
       </div>
     );
   }
