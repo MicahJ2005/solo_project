@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 const pool = require('../modules/pool.js');
 // var async = require('async');
 
-router.get('/:id', (req, res) => {
+router.get('/:id', rejectUnauthenticated, (req, res) => {
   
     let reqId = req.params.id;
     const queryText = `SELECT student_info.*, person.id AS user_id FROM student_info
