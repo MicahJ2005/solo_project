@@ -126,7 +126,6 @@ class CurrentProfiles extends Component {
           // onSubmit={() => this.completeTask(this.props.reduxState.setNewTaskListReducer[0])}
           aria-labelledby="form-dialog-title"
         >
-          <p>Hello</p>
           <DialogTitle id="form-dialog-title">Edit Your Profile!</DialogTitle>
           <DialogContent>
             <DialogContentText>
