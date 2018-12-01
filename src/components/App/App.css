@@ -648,6 +648,11 @@ h3{
   left: 85px;
   border-radius:50%;
 }
+
+#addMoreImages1{
+    margin-top: 30%;
+    text-align: center;
+}
 /* body {background: #rgb(190, 241, 223);}; */
 
 #leaves i:nth-of-type(n)    { height:23px; width:30px; }
