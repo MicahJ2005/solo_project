@@ -5,7 +5,6 @@ class LeafPage extends Component {
   
   render() {
     return (
-    
       <div id="leaves">
         <i></i>
         <i></i>
@@ -50,8 +49,6 @@ class LeafPage extends Component {
         <i></i>
         <i></i>
         <i></i>
-     
-      
       </div>
     );
   }

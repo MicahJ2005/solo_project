@@ -11,7 +11,6 @@ class RegisterPage extends Component {
 
   registerUser = (event) => {
     event.preventDefault();
-
     if (this.state.username && this.state.password && this.state.userType) {
       this.props.dispatch({
         type: 'REGISTER',
@@ -36,7 +35,7 @@ class RegisterPage extends Component {
     return (
       <div>
         <LeafPage />
-      <div id="newLogin">
+        <div id="newLogin">
         {this.props.errors.registrationMessage && (
           <h2
             className="alert"
@@ -72,13 +71,11 @@ class RegisterPage extends Component {
           <div>
           <li> <label htmlFor="userType">
               User Type:    
-    
               <select name="userType" id="userType" type="userType" onChange={this.handleInputChangeFor('userType')}>
                 <option value="">Please chose a user type</option>
                   <option value="1">Parent</option>
                   <option value="2">Teacher</option>
               </select>
-              
             </label></li>
           </div>
           <div>

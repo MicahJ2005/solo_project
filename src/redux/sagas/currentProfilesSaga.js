@@ -3,10 +3,8 @@ import axios from 'axios';
 
 // worker Saga: will be fired on "LOGIN" actions
 function* getProfiles(action) {
-  console.log('getProfiles action', action.payload);
     try {
         const response = yield call(axios.get, `/getStudentInfo/${action.payload}`)
-        console.log('getStudentInfo api response', response);
         yield put(({ type: 'SET_STUDENTS', payload: response.data}))
         
       }
@@ -15,8 +13,6 @@ function* getProfiles(action) {
         
       }
 }
-
-
 
 function* currentProfilesSaga() {
   yield takeLatest('RENDER_PROFILES', getProfiles);

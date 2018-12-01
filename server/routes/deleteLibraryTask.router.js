@@ -4,8 +4,6 @@ const pool = require('../modules/pool.js');
 
 
 router.delete('/:id', (req, res) => {
-    console.log('req in Delete Library Task router', req.params.id);
-    
     let reqId = req.params.id;
     let sqlText = `DELETE FROM student_task_profile WHERE id=$1;`;
     pool.query(sqlText, [reqId])

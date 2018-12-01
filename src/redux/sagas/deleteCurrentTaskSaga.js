@@ -14,8 +14,6 @@ function* deleteCurrentTask(action) {
       }
 }
 
-
-
 function* deleteCurrentTaskSaga() {
   yield takeLatest('DELETE_TASK', deleteCurrentTask);
   

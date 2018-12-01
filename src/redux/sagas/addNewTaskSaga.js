@@ -13,8 +13,6 @@ function* addIndividualTask(action) {
     }
 }
 
-
-
 function* createNewTaskSaga() {
   yield takeLatest('ADD_NEW_TASK', addIndividualTask);
   

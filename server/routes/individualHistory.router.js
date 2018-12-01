@@ -4,8 +4,6 @@ const pool = require('../modules/pool.js');
 // var async = require('async');
 
 router.get('/:id', (req, res) => {
-  console.log('req.params.id', req.params.id);
-  
     let reqId = req.params.id;
     console.log('GET Individual Tasks request for id', reqId);
     

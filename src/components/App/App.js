@@ -16,7 +16,6 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
-// import Header from '../Header/Header';
 import CreateNewProfile from '../CreateNewProfile/CreateNewProfile';
 import CurrentProfiles from '../CurrentProfiles/CurrentProfiles';
 import UserInterface from '../UserInterface/UserInterface';

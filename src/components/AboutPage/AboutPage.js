@@ -1,15 +1,28 @@
 import React from 'react';
 
-// This is one of our simplest components
-// It doesn't have local state, so it can be a function component.
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is, so it doesn't need 'connect()'
-
 const AboutPage = () => (
   <div>
     <div>
-      <p>
-        This about page is for anyone to read!
+      <p id="aboutPageText">
+        <h2> 
+        <em>Technologies used</em>:
+        </h2>
+          <h3>React.js</h3>
+          <h3>Redux</h3>
+          <h3>Redux Saga</h3>
+          <h3>Postgresql</h3>
+          <h3>Moment.js</h3>
+          <h3>SweetAlerts</h3>
+          <h3>ConfirmAlerts</h3>
+          <h3>Material UI</h3>
+          <h3>LOTS of CSS</h3>
+      <br/>
+      <h2> <em>Things I would like to add: </em></h2>
+        <h3>Drag and Drop feature for the current task list</h3>
+        <h3>Ability to sort by date on the history table</h3>
+      <br/>
+      <h2><em>Challenges:</em></h2>
+        <h3>Uppy and Dropzone API</h3>
       </p>
     </div>
   </div>

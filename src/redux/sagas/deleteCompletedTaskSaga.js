@@ -2,8 +2,6 @@ import { put, takeLatest , call } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* deleteCompletedTask(action) {
-  console.log('deleteCompletedTask action', action);
-  
     try {
         yield call(axios.delete, `/deleteCompletedTask/${action.payload.taskId}`)
         yield put({ type: 'GET_SELECTED_TASKLIST', payload: action.payload.taskUserId} )
@@ -14,8 +12,6 @@ function* deleteCompletedTask(action) {
         
       }
 }
-
-
 
 function* deleteCompletedProfileSaga() {
   yield takeLatest('DELETE_COMPLETED_TASK', deleteCompletedTask);

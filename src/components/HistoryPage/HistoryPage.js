@@ -8,8 +8,7 @@ class HistoryPage extends Component {
     this.props.history.push('/IndividualProfile')
   }
 
-  render () {
-      
+  render () {  
     return (
       <div>
         <section>
@@ -20,12 +19,10 @@ class HistoryPage extends Component {
         {this.props.reduxState.selectProfileReducer.map((profile) => {
           return(
             <h1 key={profile.id}>{profile.name} History</h1>
-          )
-          
+          ) 
         })}
       
             <table >
-              
               <thead id="tableHead"> 
                 <tr>
                   <td>Task Completed</td>
@@ -44,12 +41,10 @@ class HistoryPage extends Component {
                 </tr>
               </tbody>
                 )
-        })}
-        </table>
+              })}
+            </table>
           </section>
         </div>
-      
-      
     )
   }
 }

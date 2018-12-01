@@ -5,7 +5,6 @@ import axios from 'axios';
 function* getIndividualTasks(action) {
     try {
         const response = yield call(axios.get, `/getIndividualTasks/${action.payload}`)
-        console.log('getIndividualTasks api response', response);
         yield put(({ type: 'SET_INDIVIDUAL_TASKS', payload: response.data}))
       }
       catch (error) {

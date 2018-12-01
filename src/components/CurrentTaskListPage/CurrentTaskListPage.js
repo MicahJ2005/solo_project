@@ -29,33 +29,28 @@ class CurrentTaskListPage extends Component {
     }
 
   render () {
-      
     return (
-    <div id="individualProfileCard">
-      <div> 
-        <div id="currentTaskListHeader">
-          <h1>Current Task List</h1>
-          <h6 id="CurrentTasks">(To remove an image, click REMOVE)</h6>
-          <h6 id="CurrentTasks">(When you are ready to start your schedule, click START SCHEDULE)</h6>
+      <div id="individualProfileCard">
+        <div> 
+          <div id="currentTaskListHeader">
+            <h1>Current Task List</h1>
+              <h6 id="CurrentTasks">(To remove an image, click REMOVE)</h6>
+              <h6 id="CurrentTasks">(When you are ready to start your schedule, click START SCHEDULE)</h6>
+          </div>
+          <button id="startScheduleButton" onClick={this.userInterface}>Start Schedule</button>
+              {this.props.reduxState.setNewTaskListReducer.map( myTasks => {
+                  return(
+                      <ul key={myTasks.id} id="currentTaskImageBG">
+                          <img  id="currentTaskListImage" alt="task" src={myTasks.image}/>
+                          <li>{myTasks.task_name}</li>
+                          <button id="deleteButton" onClick={() => {this.removeTask(myTasks)}}>Remove</button>
+                      </ul>
+                  )
+                })}
+            </div>
+          <div>  
         </div>
-        <button id="startScheduleButton" onClick={this.userInterface}>Start Schedule</button>
-            {this.props.reduxState.setNewTaskListReducer.map( myTasks => {
-                return(
-                    <ul key={myTasks.id} id="currentTaskImageBG">
-                        <img  id="currentTaskListImage" alt="task" src={myTasks.image}/>
-                        <li>{myTasks.task_name}</li>
-                        <button id="deleteButton" onClick={() => {this.removeTask(myTasks)}}>Remove</button>
-                    </ul>
-                )
-            })}
-
       </div>
-        <div>
-
-            
-        </div>
-
-    </div>
     )
   }
 }

@@ -3,8 +3,6 @@ import axios from 'axios';
 
 // worker Saga: will be fired on "LOGIN" actions
 function* editProfile(action) { 
-    console.log('addCompleted action', action.payload);
-    
     try {
         yield call(axios.put, `/editProfile/${action.payload.profileId}`, action.payload);
         yield put({ type: 'RENDER_PROFILES', payload: action.payload.profileUserId } )
@@ -14,7 +12,6 @@ function* editProfile(action) {
         alert('Unable to add project');
     }
 }
-
 
 
 function* editProfileSaga() {

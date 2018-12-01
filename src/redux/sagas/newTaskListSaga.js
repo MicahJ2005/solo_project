@@ -14,8 +14,6 @@ function* addNewTasksToList(action) {
 }
 
 
-
-
 function* addNewTaskListSaga() {
   yield takeLatest('ADD_TO_TASKLIST', addNewTasksToList);
  

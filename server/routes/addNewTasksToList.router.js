@@ -4,7 +4,6 @@ const pool = require('../modules/pool.js');
 // var async = require('async');
 
 router.post('/', (req, res) => {
-    
     const queryText = `INSERT INTO "tasks" 
                         ("task_name", "student_id", "image")
                        VALUES ($1, $2, $3)`;

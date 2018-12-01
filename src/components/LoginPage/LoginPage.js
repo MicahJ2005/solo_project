@@ -8,8 +8,6 @@ class LoginPage extends Component {
     password: '',
   };
 
-  
-
   login = (event) => {
     event.preventDefault();
 
@@ -37,8 +35,6 @@ class LoginPage extends Component {
       <div>
       <LeafPage />
       <div id="newLogin">
-        
-        
         {this.props.errors.loginMessage && (
           <h2
             className="alert"

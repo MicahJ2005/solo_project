@@ -3,8 +3,7 @@ const router = express.Router();
 const pool = require('../modules/pool.js');
 // var async = require('async');
 
-router.post('/', (req, res) => {
-    
+router.post('/', (req, res) => { 
     const queryText = `INSERT INTO "completed_tasks" 
                         ("task_name", "student_id", "note")
                        VALUES ($1, $2, $3)`;

@@ -3,8 +3,6 @@ import axios from 'axios';
 
 // worker Saga: will be fired on "LOGIN" actions
 function* deleteLibraryTask(action) {
-    console.log('deleteLibraryTask action', action.payload.id);
-    
     try {
         yield call(axios.delete, `/deleteLibraryTask/${action.payload.id}`)
         yield put(({ type: 'RENDER_INDIVIDUAL_TASKS', payload: action.payload.student_id }))
@@ -15,7 +13,6 @@ function* deleteLibraryTask(action) {
         
       }
 }
-
 
 
 function* deleteThisLibraryTask() {

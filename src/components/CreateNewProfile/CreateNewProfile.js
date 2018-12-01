@@ -6,12 +6,9 @@ const newStudent = {
     student_pic: '',
     note: '',
     user_id: '',
-    
 }
 
-
 class CreateNewProfile extends Component {
-
     state = newStudent
 
     /// handling the change of each event
@@ -21,11 +18,9 @@ class CreateNewProfile extends Component {
                 user_id: JSON.stringify(this.props.reduxState.user.id)
         });
 }
-    ///addNewProject dispatched our new state/project to our root saga on index.js
+
     submitForm = event => {
-        console.log('newStudent', this.state);
         event.preventDefault();
-        
         this.props.dispatch({ type: 'ADD_STUDENT', 
         payload: {
             newProfile: this.state,
@@ -33,12 +28,10 @@ class CreateNewProfile extends Component {
 
          })
         this.setState(newStudent);
-        // this.props.history.push('/CurrentProfiles')
     }
 
 
-  render () {
-      
+  render () { 
     return (
       <div>
           <section>
@@ -53,8 +46,6 @@ class CreateNewProfile extends Component {
                     <input id="selectButton" type="submit" value="submit"></input>
                     <h2><em>Never underestimate the impact <u>YOU</u> have on a child's life!</em> </h2>
                 </form>
-                
-                
             </section>
       </div>
     )

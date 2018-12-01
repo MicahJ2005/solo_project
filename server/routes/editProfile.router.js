@@ -3,8 +3,6 @@ const router = express.Router();
 const pool = require('../modules/pool.js');
 
 router.put('/:id', (req, res) => {
-    console.log('PUT req.body', req.body);
-    
     const reqId = req.body.profileId
     const newName = req.body.name;
     const newNote = req.body.note;

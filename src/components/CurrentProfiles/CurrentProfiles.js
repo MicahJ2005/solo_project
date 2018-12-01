@@ -11,8 +11,6 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import swal from 'sweetalert';
 
-
-
 class CurrentProfiles extends Component {
   state = {
     name: '',
@@ -71,7 +69,7 @@ class CurrentProfiles extends Component {
 
   handleClose = () => {
     this.setState({ open: false });
-    // window.location.reload();
+  
   };
 
 
@@ -79,12 +77,9 @@ class CurrentProfiles extends Component {
     this.setState({
       [event.target.name]: event.target.value,
     });
-    console.log('new state of note', this.state);
-
   }
 
   editProfile = profile => {
-
     this.setState({ open: false });
     this.props.dispatch({
       type: 'EDIT_PROFILE', payload: {
@@ -110,11 +105,11 @@ class CurrentProfiles extends Component {
                 <li ><img id="profileImg" alt={profile.id} src={profile.student_pic} /></li>
                 <li id="profileName">{profile.name}</li>
                 <li id="allProfilesNote"><em>{profile.note}</em></li>
-                <div id="currentProfileButtons">
-                  <li><button id="editButton" onClick={() => { this.handleClickOpen(profile) }}>Edit</button></li>
-                  <li><button id="selectButton" onClick={() => { this.selectProfile(profile) }}>Select</button></li>
-                  <li><button id="deleteButton" onClick={() => { this.removeProfile(profile) }}>Remove</button></li>
-                </div>
+                  <div id="currentProfileButtons">
+                    <li><button id="editButton" onClick={() => { this.handleClickOpen(profile) }}>Edit</button></li>
+                    <li><button id="selectButton" onClick={() => { this.selectProfile(profile) }}>Select</button></li>
+                    <li><button id="deleteButton" onClick={() => { this.removeProfile(profile) }}>Remove</button></li>
+                  </div>
               </ul>
             )
           })}
@@ -129,7 +124,6 @@ class CurrentProfiles extends Component {
           <DialogTitle id="form-dialog-title">Edit Your Profile!</DialogTitle>
           <DialogContent>
             <DialogContentText>
-
             </DialogContentText>
             <TextField
               onChange={this.handleChange}
@@ -145,7 +139,6 @@ class CurrentProfiles extends Component {
           </DialogContent>
           <DialogContent>
             <DialogContentText>
-
             </DialogContentText>
             <TextField
               onChange={this.handleChange}
@@ -174,7 +167,6 @@ class CurrentProfiles extends Component {
               fullWidth
             />
           </DialogContent>
-
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
               Cancel

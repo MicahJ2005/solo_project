@@ -11,9 +11,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 
-
 class UserInterface extends Component {
-
   state = {
     id: '',
     note: '',
@@ -21,7 +19,6 @@ class UserInterface extends Component {
   }
 
   handleClickOpen = () => {
-    console.log('in handleClickOpen');
     this.setState({ note: ''});
     this.setState({ open: true });
   };
@@ -32,7 +29,6 @@ class UserInterface extends Component {
 
 
   completeTask = (tasktoComplete) => {  
-    console.log('tasktoComplete', tasktoComplete);
     this.setState({ open: false });
     confirmAlert({
       title: 'Complete Task?',
@@ -49,44 +45,36 @@ class UserInterface extends Component {
           }}) 
           
         },
-
         {
           label: 'No',
           onClick: () => alert('Click No')
         }
       ]
-      })
+    })
   }
 
   handleChange = event => {
     this.setState({
             [event.target.name]: event.target.value,
     });
-    console.log('new state of note', this.state.note);
-    
 }
   
 
   render () {
-    // const image1 = this.props.reduxState.setNewTaskListReducer[0].image
-    // const image2 = this.props.reduxState.setNewTaskListReducer[1].image 
-
     return (
       <div>
         <div id="uiImage1bg" >
           <div id="firstTextBG">
             <h1 id="firstText">First</h1>
           </div>
-          {this.props.reduxState.setNewTaskListReducer[0] !== undefined ?  (
-              <div><img onClick={this.handleClickOpen} id="uiImage1" src={this.props.reduxState.setNewTaskListReducer[0].image} alt="img1"/>
-              <h2 id="uiTaskName1">{this.props.reduxState.setNewTaskListReducer[0].task_name}</h2></div>
-            ) : (<ul><h1 id="addMoreImages1"> WOW! You did it! </h1><h4 id="addMoreImages1">Return to your profile to add more images!</h4></ul>)
-            
+            {this.props.reduxState.setNewTaskListReducer[0] !== undefined ?  (
+                <div><img onClick={this.handleClickOpen} id="uiImage1" src={this.props.reduxState.setNewTaskListReducer[0].image} alt="img1"/>
+                <h2 id="uiTaskName1">{this.props.reduxState.setNewTaskListReducer[0].task_name}</h2></div>
+              ) : (<ul><h1 id="addMoreImages1"> WOW! You did it! </h1><h4 id="addMoreImages1">Return to your profile to add more images!</h4></ul>)
             }
-          
-            <div >
+          <div >
               
-            </div>
+          </div>
             <Dialog
               open={this.state.open}
               onClose={this.handleClose}
@@ -120,13 +108,7 @@ class UserInterface extends Component {
               </DialogActions>
             </Dialog>
           </div>
-            {/* <img onClick={() => this.completeTask(this.props.reduxState.setNewTaskListReducer[0])} id="uiImage1" src={this.props.reduxState.setNewTaskListReducer[0].image} alt="img1"/> */}
-                
-        
-        
-          
-          
-
+            
         <div id="uiImage2bg" >
           <div id="thenTextBG">
             <h1 id="thenText">Then</h1>
@@ -135,15 +117,8 @@ class UserInterface extends Component {
               <div><img onClick={this.handleClickOpen} id="uiImage2" src={this.props.reduxState.setNewTaskListReducer[1].image} alt="img2"/>
               <h2 id="uiTaskName2">{this.props.reduxState.setNewTaskListReducer[1].task_name}</h2></div>
             ) : (<h1 id="addMoreImages1"> You're Almost Done!!!</h1>)
-            
             }
-            
-        {/* <div>
-          <h2 id="uiTaskName2">{this.props.reduxState.setNewTaskListReducer[1].task_name}</h2>
-        </div> */}
-        
         </div>
-        
       </div>
     )
   }

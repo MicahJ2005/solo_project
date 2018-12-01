@@ -653,6 +653,10 @@ h3{
     margin-top: 30%;
     text-align: center;
 }
+
+#aboutPageText{
+    text-align: center;
+}
 /* body {background: #rgb(190, 241, 223);}; */
 
 #leaves i:nth-of-type(n)    { height:23px; width:30px; }

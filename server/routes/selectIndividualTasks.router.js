@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool.js');
-// var async = require('async');
 
 router.get('/:id', (req, res) => {
     let reqId = req.params.id; 

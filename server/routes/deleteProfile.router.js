@@ -4,8 +4,6 @@ const pool = require('../modules/pool.js');
 
 
 router.delete('/:id', (req, res) => {
-    console.log('DELETE req.params.id', req.params );
-    
     let reqId = req.params.id;
     let sqlText = 'DELETE FROM student_info WHERE id=$1;';
     pool.query(sqlText, [reqId])
