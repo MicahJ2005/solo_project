@@ -114,7 +114,7 @@ class UserInterface extends Component {
             <h1 id="thenText">Then</h1>
           </div>
           {this.props.reduxState.setNewTaskListReducer[1] !== undefined ?  (
-              <div><img onClick={this.handleClickOpen} id="uiImage2" src={this.props.reduxState.setNewTaskListReducer[1].image} alt="img2"/>
+              <div><img id="uiImage2" src={this.props.reduxState.setNewTaskListReducer[1].image} alt="img2"/>
               <h2 id="uiTaskName2">{this.props.reduxState.setNewTaskListReducer[1].task_name}</h2></div>
             ) : (<h1 id="addMoreImages1"> You're Almost Done!!!</h1>)
             }

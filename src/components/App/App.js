@@ -21,7 +21,6 @@ import CurrentProfiles from '../CurrentProfiles/CurrentProfiles';
 import UserInterface from '../UserInterface/UserInterface';
 import IndividualProfile from '../IndividualProfile/IndividualProfile';
 import HistoryPage from '../HistoryPage/HistoryPage';
-import SelectedTasks from '../SelectedTasks/SelectedTasks';
 import CurrentTaskListPage from '../CurrentTaskListPage/CurrentTaskListPage';
 
 import './App.css';
@@ -65,7 +64,6 @@ class App extends Component {
             />
             <ProtectedRoute path="/UserInterface" component={UserInterface} />
             <ProtectedRoute exact path="/CreateNewProfile" component={CreateNewProfile} />
-            <ProtectedRoute path="/SelectedTasks" component={SelectedTasks} />
             <ProtectedRoute path="/CurrentProfiles" component={CurrentProfiles} />
             <ProtectedRoute path="/IndividualProfile" component={IndividualProfile} />
             <ProtectedRoute path="/HistoryPage" component={HistoryPage} />
