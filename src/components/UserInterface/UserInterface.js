@@ -78,7 +78,6 @@ class UserInterface extends Component {
             <Dialog
               open={this.state.open}
               onClose={this.handleClose}
-              // onSubmit={() => this.completeTask(this.props.reduxState.setNewTaskListReducer[0])}
               aria-labelledby="form-dialog-title"
             >
               <DialogTitle id="form-dialog-title">Complete Task!</DialogTitle>

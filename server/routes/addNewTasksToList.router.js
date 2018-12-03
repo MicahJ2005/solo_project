@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool.js');
-// var async = require('async');
+
 
 router.post('/', (req, res) => {
     const queryText = `INSERT INTO "tasks" 
