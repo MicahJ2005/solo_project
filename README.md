@@ -3,6 +3,10 @@ F/TforME is a First, Then picture scheduler. It is used primarily for children w
 
 This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
 
+To quickly view the fully functioning application, navigate to https://glacial-dawn-27008.herokuapp.com/#/home 
+
+If you desire to run the code on a seperate client and server, follow the steps laid out below.
+
 ## Download This Repository
 
 * You are encouraged to Download a zip file of this repository. Click the `Clone or Download` button and select `Download Zip`.
