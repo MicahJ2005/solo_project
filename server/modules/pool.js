@@ -28,6 +28,8 @@ if (process.env.DATABASE_URL) {
   };
 } else {
   config = {
+    user: process.env.PG_USER || null, //env var: PGUSER
+    password: process.env.DATABASE_SECRET || null, //env var: PGPASSWORD
     host: 'localhost', // Server hosting the postgres database
     port: 5432, // env var: PGPORT
     database: process.env.DATABASE_NAME || 'solo_project', // CHANGE THIS LINE! env var: PGDATABASE, this is likely the one thing you need to change to get up and running
