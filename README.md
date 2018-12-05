@@ -1,4 +1,6 @@
 # F/TforME Project
+F/TforME is a First, Then picture scheduler. It is used primarily for children with autism or special needs. The goal is to simplify daily task into 2 images at a time. First (first image on the UI), Then (second image on the UI). This makes daily routines much more managable for children, while providing the partent/guardian with helpful notes and history, to analyse trends. 
+
 This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
 
 ## Download This Repository
